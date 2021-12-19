@@ -31,8 +31,8 @@
                           <th>Keywords</th>
                           <th>Description</th>
                           <th>Status</th>
-                          <th>Güncelle</th>
-                          <th>Sil</th>
+                          <th>Update</th>
+                          <th>Delete</th>
                         </tr>
                       </thead>
 
@@ -45,8 +45,8 @@
                           <td>{{ $rs->keywords }}</td>
                           <td>{{ $rs->description }}</td>
                           <td>{{ $rs->status }}</td>
-                          <td><a href="{{route('admin_category_edit', ['id' => $rs->id])}}">Güncelle</a></td>
-                          <td><a href="{{route('admin_category_delete', ['id' => $rs->id])}}" onclick="return confirm('Delete! Are you sure ?')">Sil</a></td>
+                          <td><a href="{{route('admin_category_edit', ['id' => $rs->id])}}">Update</a></td>
+                          <td><a href="{{route('admin_category_delete', ['id' => $rs->id])}}" onclick="return confirm('Delete! Are you sure ?')">Delete</a></td>
                         </tr>
                         @endforeach
                         

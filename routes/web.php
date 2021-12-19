@@ -44,22 +44,33 @@ Route::middleware('auth')->prefix('admin')->group(function(){
     Route::get('/category/show',[\App\Http\Controllers\Admin\CategoryController::class,'show'])->name('admin_category_show');
 });
 
+Route::middleware('auth')->prefix('admin/place')->group(function(){
+    Route::get('/',[\App\Http\Controllers\Admin\PlaceController::class,'index'])->name('admin_place');
+    Route::get('/add',[\App\Http\Controllers\Admin\PlaceController::class,'add'])->name('admin_place_add');
+    Route::post('/create',[\App\Http\Controllers\Admin\PlaceController::class,'create'])->name('admin_place_create');
+    Route::post('update/{id}',[\App\Http\Controllers\Admin\PlaceController::class,'update'])->name('admin_place_update');
+    Route::get('edit/{id}',[\App\Http\Controllers\Admin\PlaceController::class,'edit'])->name('admin_place_edit');
+    Route::get('delete/{id}',[\App\Http\Controllers\Admin\PlaceController::class,'delete'])->name('admin_place_delete');
+    Route::get('show',[\App\Http\Controllers\Admin\PlaceController::class,'show'])->name('admin_place_show');
+});
+
+
 Route::get('/admin/login',[\App\Http\Controllers\Admin\HomeController::class,'login'])->name('admin_login');
 Route::get('/admin/logout',[\App\Http\Controllers\Admin\HomeController::class,'logout'])->name('admin_logout');
 Route::post('/admin/logincheck',[\App\Http\Controllers\Admin\HomeController::class,'logincheck'])->name('admin_logincheck');
 
 #Place
-Route::prefix('/admin/place')->group(function(){
+/*Route::prefix('/admin/place')->group(function(){
     Route::get('/',[\App\Http\Controllers\Admin\PlaceController::class,'index'])->name('admin_place');
-    Route::get('/create',[\App\Http\Controllers\Admin\PlaceController::class,'create'])->name('admin_place_add');
-    Route::get('/store',[\App\Http\Controllers\Admin\PlaceController::class,'store'])->name('admin_place_create');
+    Route::get('/add',[\App\Http\Controllers\Admin\PlaceController::class,'add'])->name('admin_place_add');
+    Route::post('/create',[\App\Http\Controllers\Admin\PlaceController::class,'create'])->name('admin_place_create');
+    Route::post('update/{id}',[\App\Http\Controllers\Admin\PlaceController::class,'update'])->name('admin_place_update');
     Route::get('edit/{id}',[\App\Http\Controllers\Admin\PlaceController::class,'edit'])->name('admin_place_edit');
-    Route::get('update/{id}',[\App\Http\Controllers\Admin\PlaceController::class,'update'])->name('admin_place_update');
-    Route::get('delete/{id}',[\App\Http\Controllers\Admin\PlaceController::class,'destroy'])->name('admin_place_delete');
+    Route::get('delete/{id}',[\App\Http\Controllers\Admin\PlaceController::class,'delete'])->name('admin_place_delete');
     Route::get('show',[\App\Http\Controllers\Admin\PlaceController::class,'show'])->name('admin_place_show');
 });
 
-
+*/
 
 Route::get('/home',[HomeController::class,'home'])->name('home');
 

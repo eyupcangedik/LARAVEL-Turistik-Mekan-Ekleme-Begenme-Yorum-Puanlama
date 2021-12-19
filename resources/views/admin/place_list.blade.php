@@ -26,14 +26,14 @@
                       <thead>
                         <tr>
                           <th>Id</th>
+                          <th>Category Id</th>
                           <th>Title</th>
                           <th>Keywords</th>
                           <th>Description</th>
-                          <th>Category Id</th>
-                          <th>Detail</th>
                           <th>City</th>
                           <th>Country</th>
                           <th>Location</th>
+                          <th>User Id</th>
                           <th>Status</th>
                           <th>Güncelle</th>
                           <th>Sil</th>
@@ -44,14 +44,14 @@
                         @foreach ( $datalist as $rs)
                         <tr>
                           <td>{{ $rs->id }}</td>
+                          <td>{{ $rs->category_id }}</td>
                           <td>{{ $rs->title }}</td>
                           <td>{{ $rs->keywords }}</td>
                           <td>{{ $rs->description }}</td>
-                          <td>{{ $rs->category_id }}</td>
-                          <td>{{ $rs->detail }}</td>
                           <td>{{ $rs->city }}</td>
                           <td>{{ $rs->country }}</td>
                           <td>{{ $rs->location }}</td>
+                          <td>{{ $rs->user_id }}</td>
                           <td>{{ $rs->status }}</td>
                           <td><a href="{{route('admin_place_edit', ['id' => $rs->id])}}">Güncelle</a></td>
                           <td><a href="{{route('admin_place_delete', ['id' => $rs->id])}}" onclick="return confirm('Delete! Are you sure ?')">Sil</a></td>

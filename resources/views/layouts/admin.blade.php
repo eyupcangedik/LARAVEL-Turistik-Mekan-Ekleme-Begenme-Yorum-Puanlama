@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Connect Plus</title>
     <!-- plugins:css -->
+    
     <link rel="stylesheet" href="{{asset('assets')}}/admin/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="{{asset('assets')}}/admin/vendors/flag-icon-css/css/flag-icon.min.css">
     <link rel="stylesheet" href="{{asset('assets')}}/admin/vendors/css/vendor.bundle.base.css">
@@ -20,6 +21,11 @@
     <link rel="stylesheet" href="{{asset('assets')}}/admin/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="{{asset('assets')}}/admin/images/favicon.png" />
+
+  <!--  <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet"> -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
   </head>
   <body>
 
@@ -56,6 +62,11 @@
     <!-- Custom js for this page -->
     <script src="{{asset('assets')}}/admin/js/dashboard.js"></script>
     <!-- End custom js for this page -->
+
+    <!-- include summernote css/js -->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
   </body>
 </html>
 
