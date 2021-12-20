@@ -19,7 +19,7 @@
                 <div class="card">
                   <div class="card-body">
                     
-                    <form class="forms-sample" action="{{route('admin_place_create')}}" method="post">
+                    <form class="forms-sample" action="{{route('admin_place_create')}}" method="post" enctype="multipart/form-data">
                       @csrf
 
                       <div class="form-group">
@@ -93,7 +93,18 @@
                           <option>False</option>
                         </select>
                       </div>
-                
+
+                      <div class="form-group">
+                        <label>File upload</label>
+                        <div class="input-group col-xs-12">
+                          <input type="file" name="image" class="form-control file-upload-info">
+                        </div>
+                      </div>
+                          
+                      <div class="form-group">
+                        
+                      </div>
+
                       <button type="submit" class="btn btn-primary me-2">Submit</button>
                       
                     </form>

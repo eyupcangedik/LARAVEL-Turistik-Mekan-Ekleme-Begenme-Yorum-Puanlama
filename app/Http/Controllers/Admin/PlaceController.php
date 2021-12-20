@@ -6,8 +6,15 @@ use App\Http\Controllers\Controller;
 use App\Models\Place;
 use App\Models\Category;
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facedes\Auth;
+
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
+
+
+
 
 class PlaceController extends Controller
 {
@@ -44,6 +51,26 @@ class PlaceController extends Controller
      */
     public function create(Request $request)
     {
+
+        $data = new Place;
+
+        $data->title = $request->input('title');
+        $data->keywords = $request->input('keywords');
+        $data->description = $request->input('description');
+        $data->category_id = $request->input('category_id');
+        $data->detail = $request->input('detail');
+
+        $data->city = $request->input('city');
+        $data->country = $request->input('country');
+        $data->location = $request->input('location');
+        
+        $data->user_id = Auth::id();
+        $data->status = $request->input('status');
+        $data->image = Storage::putFile('images', $request->file('image'));
+
+        $data->save();
+        
+        /*
         DB::table('places')->insert([
 
             'title' => $request->input('title'),
@@ -59,8 +86,10 @@ class PlaceController extends Controller
             'user_id' => $request->input('user_id'),
             'status' => $request->input('status'),
 
-        ]);
+            'image' => $request->file('image'),
 
+        ]);
+        */
         return redirect()->route('admin_place');
     }
 
@@ -79,7 +108,6 @@ class PlaceController extends Controller
         $data->description = $request->input('description');
         $data->category_id = $request->input('category_id');
         $data->detail = $request->input('detail');
-        $data->keywords = $request->input('keywords');
 
         $data->city = $request->input('city');
         $data->country = $request->input('country');
@@ -142,7 +170,8 @@ class PlaceController extends Controller
 
         $data->user_id = $request->input('user_id');
         $data->status = $request->input('status');
-        
+        $data->image = Storage::putFile('image', $request->file('image'));
+
         $data->save();
 
         return redirect()->route('admin_place');

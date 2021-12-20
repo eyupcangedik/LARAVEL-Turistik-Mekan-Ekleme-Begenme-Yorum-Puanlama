@@ -35,6 +35,7 @@
                           <th>Location</th>
                           <th>User Id</th>
                           <th>Status</th>
+                          <th>Image</th>
                           <th>Güncelle</th>
                           <th>Sil</th>
                         </tr>
@@ -53,6 +54,14 @@
                           <td>{{ $rs->location }}</td>
                           <td>{{ $rs->user_id }}</td>
                           <td>{{ $rs->status }}</td>
+
+                          <td>
+                            @if ( $rs->image )
+                                <img src="{{Storage::url($rs->image)}}" height="30" alt=""> 
+                                <!--<img src="{{asset('assets')}}/img/safranbolu.jpg" height="30" alt=""> -->
+                            @endif
+
+                          </td>
                           <td><a href="{{route('admin_place_edit', ['id' => $rs->id])}}">Güncelle</a></td>
                           <td><a href="{{route('admin_place_delete', ['id' => $rs->id])}}" onclick="return confirm('Delete! Are you sure ?')">Sil</a></td>
                         </tr>
