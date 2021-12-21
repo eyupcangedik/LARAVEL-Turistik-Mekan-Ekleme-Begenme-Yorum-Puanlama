@@ -20,7 +20,7 @@
             <li class="nav-item">
               <a class="nav-link" href="{{route('admin_category')}}">
                 <span class="icon-bg"><i class="mdi mdi-contacts menu-icon"></i></span>
-                <span class="menu-title">Kategoriler</span>
+                <span class="menu-title">Categories</span>
               </a>
             </li>
             <li class="nav-item">

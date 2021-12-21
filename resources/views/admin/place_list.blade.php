@@ -13,14 +13,14 @@
 <div class="main-panel">
           <div class="content-wrapper">
 
-          PLACE LIST
+          <h3>PLACE LIST</h3>  
 
           <div class="card-body">
 
           <div class="card">
-                  <div class="card-body">
+                  <div class="card-body" style="overflow-x: scroll" >
                   <form action="{{route('admin_place_add')}}">
-                        <button type="" class="btn btn-primary me-2">Ekle</button>
+                        <button type="" class="btn btn-primary me-2">ADD</button>
                   </form>
                     <table class="table table-hover">
                       <thead>
@@ -36,8 +36,9 @@
                           <th>User Id</th>
                           <th>Status</th>
                           <th>Image</th>
-                          <th>Güncelle</th>
-                          <th>Sil</th>
+                          <th>Image Galery</th>
+                          <th>Update</th>
+                          <th>Delete</th>
                         </tr>
                       </thead>
 
@@ -58,12 +59,15 @@
                           <td>
                             @if ( $rs->image )
                                 <img src="{{Storage::url($rs->image)}}" height="30" alt=""> 
-                                <!--<img src="{{asset('assets')}}/img/safranbolu.jpg" height="30" alt=""> -->
                             @endif
 
                           </td>
-                          <td><a href="{{route('admin_place_edit', ['id' => $rs->id])}}">Güncelle</a></td>
-                          <td><a href="{{route('admin_place_delete', ['id' => $rs->id])}}" onclick="return confirm('Delete! Are you sure ?')">Sil</a></td>
+
+                          <td><a href="{{route('admin_image_add', ['place_id' => $rs->id])}}" onclick="return !window.open(this.href, '','top=50 left=100, width=900, height=700')"><i class="bi bi-images"></i>
+</a></td>
+
+                          <td><a href="{{route('admin_place_edit', ['id' => $rs->id])}}"><i class="bi bi-gear"></i></a></td>
+                          <td><a href="{{route('admin_place_delete', ['id' => $rs->id])}}" onclick="return confirm('Delete! Are you sure ?')"><i class="bi bi-trash-fill"></i></a></td>
                         </tr>
                         @endforeach
                         

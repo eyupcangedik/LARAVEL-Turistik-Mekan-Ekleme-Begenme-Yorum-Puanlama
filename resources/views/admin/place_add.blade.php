@@ -13,7 +13,7 @@
 <div class="main-panel">
           <div class="content-wrapper">
 
-            ADD PLACE
+          <h3> ADD PLACE</h3>
 
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
@@ -23,7 +23,7 @@
                       @csrf
 
                       <div class="form-group">
-                        <label for="exampleSelectGender">Kategori ID</label>
+                        <label for="exampleSelectGender">Category Id</label>
                         
                         <select name="category_id" class="form-control" id="exampleSelectGender" required >
                         
@@ -105,7 +105,7 @@
                         
                       </div>
 
-                      <button type="submit" class="btn btn-primary me-2">Submit</button>
+                      <button type="submit" class="btn btn-primary me-2">Save</button>
                       
                     </form>
                   </div>

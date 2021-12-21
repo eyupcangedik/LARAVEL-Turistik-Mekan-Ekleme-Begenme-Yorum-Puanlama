@@ -13,14 +13,14 @@
 <div class="main-panel">
           <div class="content-wrapper">
 
-          CATEGORY LIST
+          <h3>CATEGORY LIST</h3>
 
           <div class="card-body">
 
           <div class="card">
                   <div class="card-body">
                   <form action="{{route('admin_category_add')}}">
-                        <button type="" class="btn btn-primary me-2">Ekle</button>
+                        <button type="" class="btn btn-primary me-2">ADD</button>
                   </form>
                     <table class="table table-hover">
                       <thead>
@@ -45,8 +45,8 @@
                           <td>{{ $rs->keywords }}</td>
                           <td>{{ $rs->description }}</td>
                           <td>{{ $rs->status }}</td>
-                          <td><a href="{{route('admin_category_edit', ['id' => $rs->id])}}">Update</a></td>
-                          <td><a href="{{route('admin_category_delete', ['id' => $rs->id])}}" onclick="return confirm('Delete! Are you sure ?')">Delete</a></td>
+                          <td><a href="{{route('admin_category_edit', ['id' => $rs->id])}}"><i class="bi bi-gear"></i></a></td>
+                          <td><a href="{{route('admin_category_delete', ['id' => $rs->id])}}" onclick="return confirm('Delete! Are you sure ?')"><i class="bi bi-trash-fill"></i></a></td>
                         </tr>
                         @endforeach
                         

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+
 //use App\Http\Controllers\Admin\HomeController;
 
 //use App\Http\Controllers\Admin;
@@ -28,10 +29,16 @@ Route::get('/', function () {
 });
 */
 
+#Login
+Route::get('/admin/login',[\App\Http\Controllers\Admin\HomeController::class,'login'])->name('admin_login');
+Route::get('/admin/logout',[\App\Http\Controllers\Admin\HomeController::class,'logout'])->name('admin_logout');
+Route::post('/admin/logincheck',[\App\Http\Controllers\Admin\HomeController::class,'logincheck'])->name('admin_logincheck');
+
+
+#Category
 Route::middleware('auth')->prefix('admin')->group(function(){
     Route::get('/',[\App\Http\Controllers\Admin\HomeController::class,'index'])->name('admin_home');
 
-    #Category
     Route::get('/category',[\App\Http\Controllers\Admin\CategoryController::class,'index'])->name('admin_category');
     Route::get('/category/add',[\App\Http\Controllers\Admin\CategoryController::class,'add'])->name('admin_category_add');
     Route::post('/category/create',[\App\Http\Controllers\Admin\CategoryController::class,'create'])->name('admin_category_create');
@@ -41,6 +48,8 @@ Route::middleware('auth')->prefix('admin')->group(function(){
     Route::get('/category/show',[\App\Http\Controllers\Admin\CategoryController::class,'show'])->name('admin_category_show');
 });
 
+
+#Place
 Route::middleware('auth')->prefix('admin/place')->group(function(){
     Route::get('/',[\App\Http\Controllers\Admin\PlaceController::class,'index'])->name('admin_place');
     Route::get('/add',[\App\Http\Controllers\Admin\PlaceController::class,'add'])->name('admin_place_add');
@@ -52,9 +61,14 @@ Route::middleware('auth')->prefix('admin/place')->group(function(){
 });
 
 
-Route::get('/admin/login',[\App\Http\Controllers\Admin\HomeController::class,'login'])->name('admin_login');
-Route::get('/admin/logout',[\App\Http\Controllers\Admin\HomeController::class,'logout'])->name('admin_logout');
-Route::post('/admin/logincheck',[\App\Http\Controllers\Admin\HomeController::class,'logincheck'])->name('admin_logincheck');
+#Place Image Gallery
+Route::middleware('auth')->prefix('admin/image')->group(function(){
+    Route::get('/create/{place_id}',[\App\Http\Controllers\Admin\ImageController::class,'create'])->name('admin_image_add');
+    Route::post('/store/{place_id}',[\App\Http\Controllers\Admin\ImageController::class,'store'])->name('admin_image_store');
+    Route::get('/delete/{id}/{place_id}',[\App\Http\Controllers\Admin\ImageController::class,'destroy'])->name('admin_image_delete');
+    Route::get('/show',[\App\Http\Controllers\Admin\ImageController::class,'show'])->name('admin_image_show');
+});
+
 
 #Place
 /*Route::prefix('/admin/place')->group(function(){
