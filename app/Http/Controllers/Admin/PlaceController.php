@@ -26,7 +26,8 @@ class PlaceController extends Controller
     public function index()
     {
 
-        $datalist = DB::select('select *from places');
+        //$datalist = DB::select('select *from places');
+        $datalist = Place::all();
 
         return view('admin.place_list', ['datalist'=>$datalist]);
         

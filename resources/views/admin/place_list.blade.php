@@ -46,7 +46,7 @@
                         @foreach ( $datalist as $rs)
                         <tr>
                           <td>{{ $rs->id }}</td>
-                          <td>{{ $rs->category_id }}</td>
+                          <td>{{ $rs->category->title }}</td>
                           <td>{{ $rs->title }}</td>
                           <td>{{ $rs->keywords }}</td>
                           <td>{{ $rs->description }}</td>
@@ -63,8 +63,7 @@
 
                           </td>
 
-                          <td><a href="{{route('admin_image_add', ['place_id' => $rs->id])}}" onclick="return !window.open(this.href, '','top=50 left=100, width=900, height=700')"><i class="bi bi-images"></i>
-</a></td>
+                          <td><a href="{{route('admin_image_add', ['place_id' => $rs->id])}}" onclick="return !window.open(this.href, '','top=50 left=100, width=900, height=700')"><i class="bi bi-images"></i></a></td>
 
                           <td><a href="{{route('admin_place_edit', ['id' => $rs->id])}}"><i class="bi bi-gear"></i></a></td>
                           <td><a href="{{route('admin_place_delete', ['id' => $rs->id])}}" onclick="return confirm('Delete! Are you sure ?')"><i class="bi bi-trash-fill"></i></a></td>
