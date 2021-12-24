@@ -15,5 +15,13 @@ class Place extends Model
         return $this->belongsTo(Category::class);
     }
 
+ #One to Many Inverse
+    public function parent(){
+        return $this->belongsTo(Place::class, 'category_id');
+    }
 
+    #One to Many
+    public function children(){
+        return $this->hasMany(Place::class, 'category_id');
+    }
 }

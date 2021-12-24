@@ -27,19 +27,19 @@
                         
                         <select name="category_id" class="form-control" id="exampleSelectGender" required >
                         
-                          <option value="0" selected="selected" disabled>Seçiniz</option>
+                          <option value="" style="background-color:red; color:white;">Please select a category </option>
 
                           @foreach ($datalist as $rs)
-                           @if ($rs->parent_id == '0')
-                          <option value="{{ $rs->id }}">{{ $rs->title}}</option>
-                          @endif
+                           
+                          <option value="{{ $rs->id }}">{{ \App\Http\Controllers\Admin\CategoryController::getParentsTree($rs, $rs->title)}}</option>
+                          
                           @endforeach
                         </select>
                       </div>
 
                       <div class="form-group">
                         <label for="exampleInputName1">Title</label>
-                        <input name="title" type="text" class="form-control" id="exampleInputName1" placeholder="Title">
+                        <input name="title" type="text" class="form-control" id="exampleInputName1" placeholder="Title" required>
                       </div>   
 
                       <div class="form-group">
@@ -97,7 +97,7 @@
                       <div class="form-group">
                         <label>File upload</label>
                         <div class="input-group col-xs-12">
-                          <input type="file" name="image" class="form-control file-upload-info">
+                          <input type="file" name="image" class="form-control file-upload-info" required>
                         </div>
                       </div>
                           
@@ -105,7 +105,7 @@
                         
                       </div>
 
-                      <button type="submit" class="btn btn-primary me-2">Save</button>
+                      <input type="submit" class="btn btn-primary me-2" value="Save">
                       
                     </form>
                   </div>

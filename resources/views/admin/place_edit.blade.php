@@ -26,12 +26,12 @@
                         <label for="exampleSelectGender">Category Id</label>
                       
                           <select name="category_id" value="{{$data->category_id}}" class="form-control" id="exampleSelectGender" required >                        
-                          <option value="0" selected="selected" disabled>Seçiniz</option>
+                          <option value="" style="background-color:red; color:white;" >Please select a category</option>
     
                           @foreach ($datalist2 as $rs)
 
-                          @if ($rs -> id <= 5)
-                          <option value="{{ $rs->id }}">{{ $rs->title}}</option> @endif
+                         
+                          <option value="{{ $rs->id }}">{{ \App\Http\Controllers\Admin\CategoryController::getParentsTree($rs, $rs->title)}}</option> 
                           
                           @endforeach
 
@@ -40,7 +40,7 @@
 
                       <div class="form-group">
                         <label for="exampleInputName1">Title</label>
-                        <input name="title" value="{{$data->title}}" type="text" class="form-control" id="exampleInputName1" placeholder="Title">
+                        <input name="title" value="{{$data->title}}" type="text" class="form-control" id="exampleInputName1" placeholder="Title" required>
                       </div>
 
                       <div class="form-group">
@@ -97,7 +97,7 @@
                       <div class="form-group">
                         <label>File upload</label>
                         <div class="input-group col-xs-12">
-                          <input type="file" name="image" class="form-control file-upload-info">
+                          <input type="file" name="image" class="form-control file-upload-info" required>
                         </div>
                       </div>
                       

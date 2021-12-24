@@ -26,9 +26,8 @@ class PlaceController extends Controller
     public function index()
     {
 
-        //$datalist = DB::select('select *from places');
-        $datalist = Place::all();
-
+        //$datalist = Place::all();
+        $datalist = Place::with('children')->orderBy('title', 'ASC')->get();
         return view('admin.place_list', ['datalist'=>$datalist]);
         
     }
@@ -42,6 +41,7 @@ class PlaceController extends Controller
     public function add()
     {
         $datalist = DB::table('categories')->get();
+        //$datalist = Place::with('children')->get();
         return view('admin.place_add', ['datalist'=>$datalist]);
     }
 
@@ -53,7 +53,27 @@ class PlaceController extends Controller
     public function create(Request $request)
     {
 
-        $data = new Place;
+        DB::table('places')->insert([
+
+            'title' => $request->input('title'),
+            'keywords' => $request->input('keywords'),
+            'description' => $request->input('description'),
+            'image' => Storage::putFile('images', $request->file('image')),
+            'category_id' => $request->input('category_id'),
+            
+
+            'city' => $request->input('city'),
+            'country' => $request->input('country'),
+            'location' => $request->input('location'),
+            
+            'user_id' => Auth::id(),
+            'detail' => $request->input('detail'),
+            'status' => $request->input('status'),
+
+        ]);
+        
+        return redirect()->route('admin_place');
+       /* $data = new Place;
 
         $data->title = $request->input('title');
         $data->keywords = $request->input('keywords');
@@ -71,27 +91,8 @@ class PlaceController extends Controller
 
         $data->save();
         
-        /*
-        DB::table('places')->insert([
-
-            'title' => $request->input('title'),
-            'keywords' => $request->input('keywords'),
-            'description' => $request->input('description'),
-            'category_id' => $request->input('category_id'),
-            'detail' => $request->input('detail'),
-
-            'city' => $request->input('city'),
-            'country' => $request->input('country'),
-            'location' => $request->input('location'),
-            
-            'user_id' => $request->input('user_id'),
-            'status' => $request->input('status'),
-
-            'image' => $request->file('image'),
-
-        ]);
         */
-        return redirect()->route('admin_place');
+ 
     }
 
     /**

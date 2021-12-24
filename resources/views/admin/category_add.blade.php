@@ -22,7 +22,7 @@
                     <form class="forms-sample" action="{{route('admin_category_create')}}" method="post">
                       @csrf
 
-                      <div class="form-group">
+                      <!-- <div class="form-group">
                         <label for="exampleSelectGender">Category</label>
                         <select name="parent_id" class="form-control" id="exampleSelectGender" required >
                         
@@ -36,10 +36,25 @@
                           @endforeach
                         </select>
                       </div>
+                      -->
+
+                      <div class="form-group">
+                        <label for="exampleSelectGender">Category</label>
+                        <select name="parent_id" class="form-control" id="exampleSelectGender" required >
+                        
+                          <option value="" style="background-color:red; color:white;">Please select a category</option>
+
+                          @foreach ($datalist as $rs)
+                  
+                          <option value="{{ $rs->id }}">{{ \App\Http\Controllers\Admin\CategoryController::getParentsTree($rs, $rs->title)}}</option>
+
+                          @endforeach
+                        </select>
+                      </div>
 
                       <div class="form-group">
                         <label for="exampleInputName1">Title</label>
-                        <input name="title" type="text" class="form-control" id="exampleInputName1" placeholder="Title">
+                        <input name="title" type="text" class="form-control" id="exampleInputName1" placeholder="Title" required>
                       </div>
 
                       <div class="form-group">
