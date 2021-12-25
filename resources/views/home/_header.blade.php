@@ -10,6 +10,10 @@
   
             <a class="navbar-brand" href="/home">Turistik Mekan</a>
           </div>
+
+          @php 
+            $parentCategories = \App\Http\Controllers\HomeController::categoryList()
+          @endphp
   
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -18,13 +22,25 @@
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">GEZİ REHBERİ <i class="fa fa-angle-down"></i></a>
                 <ul class="dropdown-menu">
-                  <li><a href="/akdeniz">Akdeniz</a></li>
-                  <li><a href="/dogu-anadolu">Doğu Anadolu</a></li>
-                  <li><a href="/ege">Ege</a></li>
-                  <li><a href="/guneydogu">Güneydoğu Anadolu</a></li>
-                  <li><a href="/ic-anadolu">İç Anadolu</a></li>
-                  <li><a href="/karadeniz">Karadeniz</a></li>
-                  <li><a href="/marmara">Marmara</a></li> 
+                <div class="acilirmenu">
+                  <ul>
+
+                  @foreach($parentCategories as $rs)
+
+                    <li><a href="#">{{$rs->title}}</a>
+
+                      @if(count($rs->children))
+                        @include('home.categorytree',['children' => $rs->children])
+                      @endif
+
+                    </li>
+
+                  @endforeach
+                  
+                  </ul>
+                  
+                </div>
+        
                 </ul>
               </li>
              
