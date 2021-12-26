@@ -29,15 +29,24 @@ Route::get('/', function () {
 });
 */
 
-#Login
+#Admin Login
 Route::get('/admin/login',[\App\Http\Controllers\Admin\HomeController::class,'login'])->name('admin_login');
 Route::get('/admin/logout',[\App\Http\Controllers\Admin\HomeController::class,'logout'])->name('admin_logout');
 Route::post('/admin/logincheck',[\App\Http\Controllers\Admin\HomeController::class,'logincheck'])->name('admin_logincheck');
 
+#User Login
+Route::get('/home/login',[\App\Http\Controllers\UserController::class,'login'])->name('home_login');
+Route::get('/home/logout',[\App\Http\Controllers\UserController::class,'logout'])->name('home_logout');
+Route::post('/home/logincheck',[\App\Http\Controllers\UserController::class,'logincheck'])->name('home_logincheck');
+
+Route::middleware('auth')->prefix('myaccount')->namespace('myaccount')->group(function(){
+    Route::get('/',[\App\Http\Controllers\UserController::class,'index'])->name('myprofile');
+});
+
 
 #Category
 Route::middleware('auth')->prefix('admin')->group(function(){
-    Route::get('/',[\App\Http\Controllers\Admin\HomeController::class,'index'])->name('admin_home');
+    Route::get('/',[\App\Http\Controllers\Admin\HomeController::class,'admin_index'])->name('admin_home');
 
     Route::get('/category',[\App\Http\Controllers\Admin\CategoryController::class,'index'])->name('admin_category');
     Route::get('/category/add',[\App\Http\Controllers\Admin\CategoryController::class,'add'])->name('admin_category_add');
@@ -77,14 +86,13 @@ Route::middleware('auth')->prefix('admin')->group(function(){
 });
 
 
-
-
-
-
-
+#Home
 Route::get('/home',[HomeController::class,'home'])->name('home');
 
 Route::get('/contact',[HomeController::class,'contact'])->name('contact');
+
+Route::get('/aboutus',[HomeController::class,'aboutUs'])->name('aboutus');
+
 
 Route::get('/akdeniz',[HomeController::class,'b_akdeniz'])->name('akdeniz');
 

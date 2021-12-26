@@ -1,5 +1,7 @@
 @extends('layouts.admin')
 
+@section('title','Category List')
+
 @section('navbar')
     @include('admin._navbar')
 @endsection

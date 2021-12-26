@@ -1041,72 +1041,7 @@ font-size: 24px;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/*.acilirmenu{
-  z-index: 1;
-  width:20;
-  height:auto;
-  position: absolute;
-  top: 2px;
-  left: 0px;
-  background-color: inherit;
-  
-}
 
-.acilirmenu .ul .li{
-  display: inline;
-}
-.acilirmenu ul{
-  width:180px;
-  margin:0;
-  padding:0;
-  list-style-type:none;   
-}
-.acilirmenu li{
-  position: relative;
-}
-.acilirmenu li ul{
-  position:absolute;
-  list-style-type:none;
-  left:179px;
-  width:180px;
-  display:none;
-  top:0;    
-}
-.acilirmenu li a{
-  height:30px;
-  display: block;
-  text-decoration: none;
-  color: white;
-  background-color: inherit;
-  
-  font-family: Helvetica, sans-serif;
-  font-size:15px;
-  
-  padding: 0px;
-  border:1px solid #FFF;
-  border-bottom:0; 
-  text-align: center;
-  line-height: 30px;
-}
-.acilirmenu li a:hover{
-  background-color: #e67300;
-  color:#FF0;
-}
-.acilirmenu li:hover ul{
-  display:block;
-}
-
-
-
-body > nav > div > div.collapse.navbar-collapse.navbar-ex1-collapse > ul > li.dropdown > ul > div > ul > li > ul > li > a{
-  background-color: #ff8000;
-}
-
-body > nav > div > div.collapse.navbar-collapse.navbar-ex1-collapse > ul > li.dropdown > ul > div > ul > li > ul > li > a:hover{
-  background-color: #e67300;
-  color:#FF0;
-}
-*/
 .acilirmenu{
   z-index: 1;
   width:20;
@@ -1158,3 +1093,22 @@ body > nav > div > div.collapse.navbar-collapse.navbar-ex1-collapse > ul > li.dr
 .acilirmenu li:hover ul{
   display:block;
 }
+
+.maindiv{
+  background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  font-family: 'Numans', sans-serif;
+  text-align: -webkit-center;
+}
+
+.form-div{
+  margin-top: 10%;
+}
+
+.card-header > h2{
+  color: white;
+}
+
+

@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 
+@section('title','Place Add')
 @section('navbar')
     @include('admin._navbar')
 @endsection
@@ -56,12 +57,10 @@
                       <div class="form-group" > 
                         
                         <label for="exampleInputName1">Detail</label>
-                        <textarea id="summernote" name="detail"></textarea>
-                        <script>
-                          $(document).ready(function() {
-                            $('#summernote').summernote();
-                          });
-                        </script>
+                        <textarea id="editor1" name="detail"></textarea>
+                          <script>
+                              CKEDITOR.replace( 'editor1' );
+                          </script>
                       </div>
 
                       <div class="form-group">

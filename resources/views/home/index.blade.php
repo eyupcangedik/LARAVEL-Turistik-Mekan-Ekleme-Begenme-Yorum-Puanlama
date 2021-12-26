@@ -1,6 +1,9 @@
 @extends('layouts.home')
 
 @section('title','Anasayfa')
+@section('keywords',$data->keywords)
+@section('description',$data->description)
+
 
 @section('header')
     @include('home._header')

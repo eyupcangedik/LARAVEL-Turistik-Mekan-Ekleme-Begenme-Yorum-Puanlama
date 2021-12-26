@@ -165,12 +165,10 @@
                                 
                                   <div class="form-group">
                                     <label for="exampleInputName1">About Us</label>
-                                      <textarea id="summernote" name="aboutus" value="">{{$data->aboutus}}</textarea>
-                                        <script>
-                                          $(document).ready(function() {
-                                            $('#summernote').summernote();
-                                          });
-                                        </script>  
+                                      <textarea id="editor1" name="aboutus" value="">{{$data->aboutus}}</textarea>
+                                      <script>
+                                        CKEDITOR.replace( 'editor1' );
+                                      </script>
                                   </div>
 
                                 </div>
@@ -179,11 +177,9 @@
                                 
                                   <div class="form-group">
                                     <label for="exampleInputName1">Contact Us</label>
-                                      <textarea id="summernote2" name="contact" value="">{{$data->contact}}</textarea>
+                                      <textarea id="editor2" name="contact" value="">{{$data->contact}}</textarea>
                                       <script>
-                                        $(document).ready(function() {
-                                          $('#summernote2').summernote();
-                                      });
+                                        CKEDITOR.replace( 'editor2' );
                                       </script>
                                   </div>
                                   
@@ -193,11 +189,9 @@
                                 
                                   <div class="form-group">
                                     <label for="exampleInputName1">References</label>               
-                                    <textarea id="summernote3" name="references" value="">{{$data->references}}</textarea>
+                                    <textarea id="editor3" name="references" value="">{{$data->references}}</textarea>
                                     <script>
-                                      $(document).ready(function() {
-                                        $('#summernote3').summernote();
-                                      });
+                                      CKEDITOR.replace( 'editor3' );
                                     </script>
                                   </div>
                                   

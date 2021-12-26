@@ -170,7 +170,8 @@ class PlaceController extends Controller
         $data->country = $request->input('country');
         $data->location = $request->input('location');
 
-        $data->user_id = $request->input('user_id');
+        //$data->user_id = $request->input('user_id');
+        $data->user_id = Auth::id();
         $data->status = $request->input('status');
         $data->image = Storage::putFile('image', $request->file('image'));
 

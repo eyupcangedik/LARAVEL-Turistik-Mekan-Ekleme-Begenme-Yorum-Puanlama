@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Setting;
+use Illuminate\Support\Facades\Auth;
+
 class HomeController extends Controller
 {
 
@@ -12,12 +15,22 @@ class HomeController extends Controller
     }
 
     public function home(){
-        return view('home.index');
+       
+        $data = Setting::first();
+        return view('home.index', ['data'=>$data]);
     }
 
     public function contact(){
-        return view('home.contact');
+        $data = Setting::first();
+        return view('home.contact', ['data'=>$data]);
     }
+
+    public function aboutUs(){
+        $data = Setting::first();
+        return view('home.aboutus', ['data'=>$data]);
+    }
+
+    
 
     public function b_akdeniz(){
         return view('home.bolgeler.akdeniz.akdeniz');

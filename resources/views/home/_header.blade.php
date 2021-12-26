@@ -8,7 +8,13 @@
               <span class="icon-bar"></span>
             </button>
   
+            @if($data->company != NULL)
+            <a class="navbar-brand" href="/home">{{$data->company}}</a>
+
+            @else
             <a class="navbar-brand" href="/home">Turistik Mekan</a>
+
+            @endif
           </div>
 
           @php 
@@ -17,37 +23,59 @@
   
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse navbar-ex1-collapse">
+
             <ul class="nav navbar-nav navbar-right">
               <li class="passive"><a href="/home">ANASAYFA</a></li>
+              
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">GEZİ REHBERİ <i class="fa fa-angle-down"></i></a>
-                <ul class="dropdown-menu">
-                <div class="acilirmenu">
-                  <ul>
+                  <ul class="dropdown-menu">
+                    <div class="acilirmenu">
+                      <ul>
+                        @foreach($parentCategories as $rs)
 
-                  @foreach($parentCategories as $rs)
+                          <li><a href="#">{{$rs->title}}</a>
 
-                    <li><a href="#">{{$rs->title}}</a>
+                          @if(count($rs->children))
+                            @include('home.categorytree',['children' => $rs->children])
+                          @endif
 
-                      @if(count($rs->children))
-                        @include('home.categorytree',['children' => $rs->children])
-                      @endif
+                          </li>
 
-                    </li>
-
-                  @endforeach
-                  
-                  </ul>
-                  
-                </div>
-        
+                        @endforeach
+                      
+                      </ul>
+                    </div>
                 </ul>
               </li>
              
-              <li class="passive"><a href="index.html">SENİN HİKAYEN</a></li>
 
               <li class="passive"><a href="/contact">İLETİŞİM</a></li>
-            </ul>
+
+              <li class="passive"><a href="/aboutus">HAKKIMIZDA</a></li>
+
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">Giriş Yap/ Kayıt Ol <i class="fa fa-angle-down"></i></a>
+                  <ul class="dropdown-menu">
+                    <div class="acilirmenu">
+                        <ul>
+                          @auth
+                            @if(Auth::user()->name != NULL)
+                              <li><a href="/myaccount">{{Auth::user()->name}}</a></li>
+                              <li><a href="{{route('home_logout')}}">Çıkış Yap</a></li>
+                          @endauth
+                          
+                            @else
+                              <li><a href="{{route('home_login')}}">Giriş Yap</a></li>
+                              <li><a href="#">Kayıt Ol</a></li>
+                             @endif
+
+                        </ul>
+                   </div>
+                  </ul>
+              </li>
+
+          </ul>
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container -->
       </nav>
