@@ -43,6 +43,10 @@ Route::middleware('auth')->prefix('myaccount')->namespace('myaccount')->group(fu
     Route::get('/',[\App\Http\Controllers\UserController::class,'index'])->name('myprofile');
 });
 
+Route::middleware('auth')->prefix('user')->namespace('myaccount')->group(function(){
+    Route::get('/profile',[\App\Http\Controllers\UserController::class,'index'])->name('userprofile');
+});
+
 
 #Category
 Route::middleware('auth')->prefix('admin')->group(function(){
