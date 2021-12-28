@@ -1,10 +1,11 @@
+<div class="acilirmenu">
 <ul>
 @foreach($children as $subcategory)
-
+    
     
         @if(count($subcategory->children))
-            <li>{{$subcategory->title}}
-               
+            <li>
+                <a href="">{{$subcategory->title}}</a>
                     @include('home.categorytree',['children' => $subcategory->children])
                
             </li>
@@ -16,3 +17,4 @@
     @endforeach
 
 </ul>
+</div>

@@ -30,6 +30,10 @@ class HomeController extends Controller
         return view('home.aboutus', ['data'=>$data]);
     }
 
+    public function references(){
+        $data = Setting::first();
+        return view('home.reference', ['data'=>$data]);
+    }
     
 
     public function b_akdeniz(){

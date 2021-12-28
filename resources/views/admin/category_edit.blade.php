@@ -45,9 +45,9 @@
                       <div class="form-group">
                         <label for="exampleSelectGender">Category</label>
                         <select name="parent_id" value="{{$data->parent_id}}" class="form-control" id="exampleSelectGender" required >
-                         
+                        <option value="0" style="background-color:#34CC2D; color:white;">Main Category</option>
                           @foreach ($datalist as $rs)
-                          <option value="{{ $rs->id }}" @if ($rs->id == $data->id and $rs->parent_id >5)  style="background-color:red" disabled @endif>
+                          <option value="{{ $rs->id }}" @if ($rs->id == $data->id)  style="background-color:red" disabled @endif>
                             {{ \App\Http\Controllers\Admin\CategoryController::getParentsTree($rs, $rs->title)}}
                           </option>
                           @endforeach

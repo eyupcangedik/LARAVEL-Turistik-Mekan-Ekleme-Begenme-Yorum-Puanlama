@@ -24,7 +24,7 @@
                       <div class="form-group">
                         <label>Image upload</label>
                         <div class="input-group col-xs-12">
-                          <input type="file" name="image" class="form-control file-upload-info">
+                          <input type="file" name="image" class="form-control file-upload-info" required>
                         </div>
                       </div>
 

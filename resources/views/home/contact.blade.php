@@ -8,6 +8,9 @@
 
 @section('content')
 
+<div class="container" style="margin-top:5% ;margin-bottom:2%; font-family:arial">
+    {!!$data->contact!!}
+</div>
 
 <div class="jumbotron jumbotron-sm">
     <div class="container">

@@ -44,7 +44,7 @@
                         <label for="exampleSelectGender">Category</label>
                         <select name="parent_id" class="form-control" id="exampleSelectGender" required >
                         
-                          <option value="" style="background-color:red; color:white;">Please select a category</option>
+                          <option value="0" style="background-color:#34CC2D; color:white;">Main Category</option>
 
                           @foreach ($datalist as $rs)
                   

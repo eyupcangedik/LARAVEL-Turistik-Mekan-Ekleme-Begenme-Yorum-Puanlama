@@ -44,8 +44,9 @@ Route::middleware('auth')->prefix('myaccount')->namespace('myaccount')->group(fu
 });
 
 Route::middleware('auth')->prefix('user')->namespace('myaccount')->group(function(){
-    Route::get('/profile',[\App\Http\Controllers\UserController::class,'index'])->name('userprofile');
+    Route::get('/profile',[\App\Http\Controllers\UserController::class,'index'])->name('profile.show');
 });
+
 
 
 #Category
@@ -97,6 +98,7 @@ Route::get('/contact',[HomeController::class,'contact'])->name('contact');
 
 Route::get('/aboutus',[HomeController::class,'aboutUs'])->name('aboutus');
 
+Route::get('/references',[HomeController::class,'references'])->name('references');
 
 Route::get('/akdeniz',[HomeController::class,'b_akdeniz'])->name('akdeniz');
 
