@@ -91,8 +91,8 @@
             </li>
             <li class="nav-item sidebar-user-actions">
               <div class="sidebar-user-menu">
-                <a href="#" class="nav-link"><i class="mdi mdi-speedometer menu-icon"></i>
-                  <span class="menu-title">Take Tour</span></a>
+                <a href="{{route('admin_message')}}" class="nav-link"><i class="mdi mdi-speedometer menu-icon"></i>
+                  <span class="menu-title">Messages</span></a>
               </div>
             </li>
             <li class="nav-item sidebar-user-actions">

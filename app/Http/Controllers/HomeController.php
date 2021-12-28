@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Setting;
+use App\Models\Message;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -33,6 +34,20 @@ class HomeController extends Controller
     public function references(){
         $data = Setting::first();
         return view('home.reference', ['data'=>$data]);
+    }
+
+    public function sendMessage(Request $request){
+
+        $data1 = new Message();
+        $data1->name = $request->input('namesurname');
+        $data1->email = $request->input('email');
+        $data1->phone = $request->input('phone');
+        $data1->subject = $request->input('subject');
+        $data1->message = $request->input('message');
+        $data1->save();
+
+        $data = Setting::first();
+        return redirect()->route('contact')->with('success','Product successfully added.');
     }
     
 

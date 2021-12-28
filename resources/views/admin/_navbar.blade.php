@@ -35,7 +35,7 @@
                 </div>
                 <div class="p-2">
                   <h5 class="dropdown-header text-uppercase ps-2 text-dark">User Options</h5>
-                  <a class="dropdown-item py-1 d-flex align-items-center justify-content-between" href="#">
+                  <a class="dropdown-item py-1 d-flex align-items-center justify-content-between" href="{{route('admin_message')}}">
                     <span>Inbox</span>
                     <span class="p-0">
                       <span class="badge badge-primary">3</span>
@@ -49,16 +49,13 @@
                       <i class="mdi mdi-account-outline ms-1"></i>
                     </span>
                   </a>
-                  <a class="dropdown-item py-1 d-flex align-items-center justify-content-between" href="javascript:void(0)">
+                  <a class="dropdown-item py-1 d-flex align-items-center justify-content-between" href="{{route('admin_setting')}}">
                     <span>Settings</span>
                     <i class="mdi mdi-settings"></i>
                   </a>
                   <div role="separator" class="dropdown-divider"></div>
                   <h5 class="dropdown-header text-uppercase  ps-2 text-dark mt-2">Actions</h5>
-                  <a class="dropdown-item py-1 d-flex align-items-center justify-content-between" href="#">
-                    <span>Lock Account</span>
-                    <i class="mdi mdi-lock ms-1"></i>
-                  </a>
+                  
                   <a class="dropdown-item py-1 d-flex align-items-center justify-content-between" href="{{route('admin_logout')}}">
                     <span>Log Out</span>
                     <i class="mdi mdi-logout ms-1"></i>
