@@ -5,12 +5,12 @@
     
         @if(count($subcategory->children))
             <li>
-                <a href="">{{$subcategory->title}}</a>
+                <a href="{{route('categoryplaces',['id'=>$subcategory->id,'slug'=>$subcategory->title])}}">{{$subcategory->keywords}}</a>
                     @include('home.categorytree',['children' => $subcategory->children])
                
             </li>
         @else   
-            <li><a href="#">{{$subcategory->title}}</a> </li>
+            <li><a href="{{route('categoryplaces',['id'=>$subcategory->id,'slug'=>$subcategory->title])}}">{{$subcategory->title}}</a> </li>
         @endif
    
 

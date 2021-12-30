@@ -110,6 +110,10 @@ Route::get('/references',[HomeController::class,'references'])->name('references
 
 Route::post('/sendmessage',[HomeController::class,'sendMessage'])->name('sendmessage');
 
+Route::get('/place/{id}/{slug}',[HomeController::class,'place'])->name('place');
+Route::get('/categoryplaces/{id}/{slug}',[HomeController::class,'categoryplaces'])->name('categoryplaces');
+
+
 Route::get('/akdeniz',[HomeController::class,'b_akdeniz'])->name('akdeniz');
 
 Route::get('/dogu-anadolu',[HomeController::class,'b_dogu'])->name('dogu');

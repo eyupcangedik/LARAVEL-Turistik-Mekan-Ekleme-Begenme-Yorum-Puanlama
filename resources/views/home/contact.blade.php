@@ -92,7 +92,7 @@
     </div>
 </div>
 
-                
+<div id="map-canvas" class="carousel"></div>  
 
 @endsection
 

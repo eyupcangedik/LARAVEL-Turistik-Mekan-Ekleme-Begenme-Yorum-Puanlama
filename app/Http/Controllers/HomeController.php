@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Setting;
 use App\Models\Message;
+use App\Models\Place;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -18,7 +19,8 @@ class HomeController extends Controller
     public function home(){
        
         $data = Setting::first();
-        return view('home.index', ['data'=>$data]);
+        $slider = Place::select('title','image')->limit(5)->get();
+        return view('home.index', ['data'=>$data, 'slider'=>$slider]);
     }
 
     public function contact(){
@@ -50,6 +52,15 @@ class HomeController extends Controller
         return redirect()->route('contact')->with('success','Product successfully added.');
     }
     
+    public function places($id,$keywords){
+        $data = Place::find($id);
+    }
+
+    public function categoryplaces($id,$keywords){
+        $data = Setting::first();
+        $data2 = Place::where('category_id',$id)->get();
+        return view('home.category_places',['data'=>$data, 'data2'=>$data2]);
+    }
 
     public function b_akdeniz(){
         return view('home.bolgeler.akdeniz.akdeniz');

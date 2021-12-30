@@ -14,17 +14,17 @@
             </div>
           </div>
 
+          @foreach($slider as $rs)
           <div class="item">
-            <div class="fill" style="background-image:url('{{asset('assets')}}/img/slide/slide2.jpg');"></div>
+            <div class="fill" style="background-image:url('{{Storage::url($rs->image)}}'); width:100%; height:660px;">
+              
+            </div>
             <div class="carousel-caption">
+              <h1>{{$rs->title}}</h1>
             </div>
           </div>
-
-          <div class="item">
-            <div class="fill" style="background-image:url('{{asset('assets')}}/img/slide/slide3.jpg');"></div>
-            <div class="carousel-caption">
-            </div>
-          </div>
+          @endforeach
+          
         </div>
 
         <!-- Controls -->
