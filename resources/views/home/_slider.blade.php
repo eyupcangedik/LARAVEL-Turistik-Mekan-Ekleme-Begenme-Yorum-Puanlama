@@ -9,14 +9,21 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
           <div class="item active">
+            <div class="fill" style="background-image:url('{{asset('assets')}}/img/slide/slide2.jpg');"></div>
+            <div class="carousel-caption">
+              <h1>Kapadokya</h1>
+            </div>
+          </div>
+          <div class="item">
             <div class="fill" style="background-image:url('{{asset('assets')}}/img/slide/slide1.jpg');"></div>
             <div class="carousel-caption">
+              <h1>Kız Kulesi</h1>
             </div>
           </div>
 
           @foreach($slider as $rs)
           <div class="item">
-            <div class="fill" style="background-image:url('{{Storage::url($rs->image)}}'); width:100%; height:660px;">
+            <div class="fill" style="background-image:url('{{Storage::url($rs->image)}}'); width:100%; height:530px;">
               
             </div>
             <div class="carousel-caption">

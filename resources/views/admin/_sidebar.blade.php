@@ -30,9 +30,9 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="pages/charts/chartjs.html">
+              <a class="nav-link" href="{{route('admin_editor')}}">
                 <span class="icon-bg"><i class="mdi mdi-chart-bar menu-icon"></i></span>
-                <span class="menu-title">Charts</span>
+                <span class="menu-title">Editor</span>
               </a>
             </li>
             <li class="nav-item">

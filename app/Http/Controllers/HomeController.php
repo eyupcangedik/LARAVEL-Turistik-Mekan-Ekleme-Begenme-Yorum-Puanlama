@@ -7,7 +7,10 @@ use App\Models\Category;
 use App\Models\Setting;
 use App\Models\Message;
 use App\Models\Place;
+use App\Models\Image;
+use App\Models\Editor;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -20,7 +23,8 @@ class HomeController extends Controller
        
         $data = Setting::first();
         $slider = Place::select('title','image')->limit(5)->get();
-        return view('home.index', ['data'=>$data, 'slider'=>$slider]);
+        $data2 = DB::select('Select *from editors');
+        return view('home.index', ['data'=>$data, 'data2'=>$data2,'slider'=>$slider]);
     }
 
     public function contact(){
@@ -52,14 +56,18 @@ class HomeController extends Controller
         return redirect()->route('contact')->with('success','Product successfully added.');
     }
     
-    public function places($id,$keywords){
-        $data = Place::find($id);
+    public function places($id,$title){
+        
+        $data = Setting::first();
+        $data2 = Place::find($id);
+        $datalist = Image::where('place_id',$id)->get();
+        return view('home.place_detail',['id'=>$id, 'title'=>$title, 'data'=>$data, 'data2'=>$data2, 'datalist'=>$datalist]);
     }
 
     public function categoryplaces($id,$keywords){
         $data = Setting::first();
         $data2 = Place::where('category_id',$id)->get();
-        return view('home.category_places',['data'=>$data, 'data2'=>$data2]);
+        return view('home.category_places',['data'=>$data, 'data2'=>$data2,'title'=>$keywords]);
     }
 
     public function b_akdeniz(){

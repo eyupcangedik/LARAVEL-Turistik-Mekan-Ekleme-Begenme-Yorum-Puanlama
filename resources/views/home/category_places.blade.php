@@ -1,6 +1,6 @@
 @extends('layouts.home')
 
-@section('title','Blank')
+@section('title','Place')
 @section('keywords',$data->keywords)
 @section('description',$data->description)
 
@@ -16,7 +16,7 @@
 <div class="row">
 
   <div class="col-lg-12">
-    <h2 class="section-title"></h2>
+    <h2 class="section-title">Yerler</h2>
   </div>
 
   @foreach($data2 as $rs)
@@ -24,7 +24,7 @@
     <div class="col-lg-16">
       <h3>{{$rs->title}}  </h3>
     </div>
-    <a href="portfolio-item.html" class="link-portfolio">
+    <a href="{{route('place',['id'=>$rs->id, 'title'=>$rs->title])}}" class="link-portfolio">
       <div class="overlay-portfolio">
         <h3>{{$rs->title}}</h3>
         <small class="text-muted" style="font-family: Arial, Helvetica, sans-serif">

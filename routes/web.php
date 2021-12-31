@@ -99,6 +99,19 @@ Route::middleware('auth')->prefix('admin/messages')->group(function(){
     Route::get('/show/{id}',[\App\Http\Controllers\Admin\MessageController::class,'show'])->name('admin_message_show');
 });
 
+#Editor
+Route::middleware('auth')->prefix('admin/editor')->group(function(){
+    Route::get('/',[\App\Http\Controllers\Admin\EditorController::class,'index'])->name('admin_editor');
+    Route::get('/add',[\App\Http\Controllers\Admin\EditorController::class,'add'])->name('admin_editor_add');
+    Route::post('/create',[\App\Http\Controllers\Admin\EditorController::class,'create'])->name('admin_editor_create');
+
+    Route::post('update/{id}',[\App\Http\Controllers\Admin\EditorController::class,'update'])->name('admin_editor_update');
+    Route::get('edit/{id}',[\App\Http\Controllers\Admin\EditorController::class,'edit'])->name('admin_editor_edit');
+  
+    Route::get('/delete/{id}',[\App\Http\Controllers\Admin\EditorController::class,'destroy'])->name('admin_editor_delete');
+    Route::get('/show/{id}',[\App\Http\Controllers\Admin\EditorController::class,'show'])->name('admin_editor_show');
+});
+
 #Home
 Route::get('/home',[HomeController::class,'home'])->name('home');
 
@@ -110,8 +123,8 @@ Route::get('/references',[HomeController::class,'references'])->name('references
 
 Route::post('/sendmessage',[HomeController::class,'sendMessage'])->name('sendmessage');
 
-Route::get('/place/{id}/{slug}',[HomeController::class,'place'])->name('place');
-Route::get('/categoryplaces/{id}/{slug}',[HomeController::class,'categoryplaces'])->name('categoryplaces');
+Route::get('/place/{id}/{title}',[HomeController::class,'places'])->name('place');
+Route::get('/categoryplaces/{id}/{title}',[HomeController::class,'categoryplaces'])->name('categoryplaces');
 
 
 Route::get('/akdeniz',[HomeController::class,'b_akdeniz'])->name('akdeniz');
