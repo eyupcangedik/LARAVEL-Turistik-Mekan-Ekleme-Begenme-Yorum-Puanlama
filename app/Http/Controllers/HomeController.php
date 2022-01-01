@@ -70,6 +70,17 @@ class HomeController extends Controller
         return view('home.category_places',['data'=>$data, 'data2'=>$data2,'title'=>$keywords]);
     }
 
+
+    public function getplace(Request $request){
+        $data = Setting::first();
+        $data2 = Place::where('title',$request->input('search'))->first();
+        if($data2 == NULL){
+            return view('home.404', ['data'=>$data, 'data2'=>$data2]);
+        }
+        return redirect()->route('place',['id'=>$data2->id, 'title'=>$data2->title]); 
+    }
+
+
     public function b_akdeniz(){
         return view('home.bolgeler.akdeniz.akdeniz');
     }

@@ -1111,4 +1111,20 @@ font-size: 24px;
   color: white;
 }
 
+.arama{
+ background-color:#B3B6B7;
+ border: 1px solid #B3B6B7;
+ border-radius: 10px; 
+ font-size: 20px;
+ font-family: Arial, Helvetica, sans-serif;
+ width: 90%;
+ margin-bottom: 3%;
+}
+
+.search-bar{
+  width: 95%;
+  float: left;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+}
 

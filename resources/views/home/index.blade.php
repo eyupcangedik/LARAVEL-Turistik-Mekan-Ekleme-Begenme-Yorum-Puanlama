@@ -14,11 +14,26 @@
 @endsection
 
 @section('content')
+
 <div class="container">
 
 <div class="row">
 
   <div class="col-lg-12">
+      <form action="{{route('getplace')}}" method="post">
+        @csrf
+        <div> 
+        @livewire('search')
+        
+          <span class="input-group-btn">
+                <button class="btn btn-primary search-button" type="submit"><i class="fa fa-search"></i></button>
+          </span>
+        </div>
+      </form>
+      @livewireScripts
+  </div>
+
+  <div class="col-lg-12" style="margin-top:20px">
     <h2 class="section-title">Son Yazılar</h2>
   </div>
 

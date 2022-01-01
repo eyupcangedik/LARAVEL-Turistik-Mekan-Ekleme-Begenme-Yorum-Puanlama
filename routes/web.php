@@ -126,6 +126,9 @@ Route::post('/sendmessage',[HomeController::class,'sendMessage'])->name('sendmes
 Route::get('/place/{id}/{title}',[HomeController::class,'places'])->name('place');
 Route::get('/categoryplaces/{id}/{title}',[HomeController::class,'categoryplaces'])->name('categoryplaces');
 
+Route::post('getplace',[HomeController::class,'getplace'])->name('getplace');
+
+
 
 Route::get('/akdeniz',[HomeController::class,'b_akdeniz'])->name('akdeniz');
 
