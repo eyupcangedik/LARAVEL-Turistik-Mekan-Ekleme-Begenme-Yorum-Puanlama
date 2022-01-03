@@ -6,6 +6,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Setting;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Comment;
+
 
 
 class UserController extends Controller
@@ -60,6 +62,20 @@ class UserController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/home/login'); 
+    }
+
+
+    public function mycomments(){
+        $data = Setting::first();
+        $datalist = Comment::where('user_id','=',Auth::user()->id)->get();
+        return view('home.user_comments', ['datalist'=>$datalist, 'data'=>$data]);
+    }
+
+    public function destroycomment(Comment $comment,$id){
+        
+        $data2 = Comment::find($id);
+        $data2->delete();
+        return redirect()->back()->with('success','Comment Deleted');
     }
 
     /**

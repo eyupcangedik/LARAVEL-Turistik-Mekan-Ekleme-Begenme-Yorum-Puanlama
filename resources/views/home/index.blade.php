@@ -30,7 +30,9 @@
           </span>
         </div>
       </form>
+      @section('footerjs')
       @livewireScripts
+      @endsection
   </div>
 
   <div class="col-lg-12" style="margin-top:20px">

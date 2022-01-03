@@ -11,6 +11,12 @@
 
 @section('content')
 
+  @php 
+    $avrcom = \App\Http\Controllers\HomeController::avrgcomment($data2->id);
+    $avrcom = number_format((float)$avrcom, 2, '.', '');
+    
+    $countcomment = \App\Http\Controllers\HomeController::countcomment($data2->id);
+  @endphp
 <div class="section-header">
       <div class="container">
         <div class="row">
@@ -30,21 +36,26 @@
       
       <div class="row">
         <div>
-          <?php 
           
-            
-          ?>
         </div>
 
         <div class="col-md-8 col-sm-8">
 
           <div class="post">
             <h1 class="post-title" style="font-family:Arial">{{$data2->description}}</h1>
+            <div style="display:flex; justify-content:space-between">
             <p class="post-meta">
               <i class="fa fa-calendar-o first"></i> {{$data2->created_at}}
               <i class="fa fa-user"></i> Admin
-              <i class="fa fa-comment"></i> <a href="#">2 comments</a>
+              <i class="fa fa-comment"></i> <a href="#">{{$countcomment}} Yorum</a>
+              <i class="fa fa-star"></i> <a href="#">{{$avrcom}}</a>
+              
             </p>
+              
+            </div>
+          
+                
+                
           
           <div class="img-post">
             
@@ -86,40 +97,32 @@
             {!!$data2->detail!!}
           </div><!-- /.post -->
 
-          <!-- the comment box -->
           <div class="well">
-            <h4>Leave a Comment:</h4>
-            <form role="form">
-              <div class="form-group">
-                <textarea class="form-control" rows="3"></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+            <h4>Yorum Yap</h4>
+            @livewireScripts
+            @livewire('comment',['id'=>$data2->id])
+            
+           
           </div>
           
           <hr>
 
-          <h3>2 Comments</h3>
+          <h3>Yorumlar</h3>
 
+          @foreach($comments as $rs)
           <!-- the comments -->
+          @if($rs->status == 'True')
           <div class="comment-author-icon pull-left">
             <i class="fa fa-user"></i>
           </div>
           <div class="comment-content pull-left">
-            <h4>John Doe <small>9:41 PM on January 24, 2014</small></h4>
-            <p>Lorem ipsum Eiusmod do culpa enim ullamco officia dolor anim Ut nulla nostrud incididunt commodo reprehenderit qui exercitation commodo velit dolore voluptate esse sunt nulla eiusmod in cillum fugiat cillum nulla consequat qui reprehenderit pariatur Ut elit sed culpa amet.</p>
+            <h4>{{$rs->user->name}} <small>{{$rs->created_at}}</small></h4>
+            <p>{{$rs->comment}}</p>
           </div>
           <div class="clearfix"></div>
-
-          <div class="comment-author-icon pull-left">
-            <i class="fa fa-user"></i>
-          </div>
-          <div class="comment-content pull-left">
-            <h4>John Doe <small>12:28 PM on January 27, 2014</small></h4>
-            <p>Lorem ipsum Eiusmod do culpa enim ullamco officia dolor anim Ut nulla nostrud incididunt commodo reprehenderit qui exercitation commodo velit dolore voluptate esse sunt nulla eiusmod in cillum fugiat cillum nulla consequat qui reprehenderit pariatur Ut elit sed culpa amet.</p>
-          </div>
-          <div class="clearfix"></div>
-
+          @endif
+          @endforeach
+        
         </div>
 
         <div class="col-md-4 col-sm-4 sidebar">

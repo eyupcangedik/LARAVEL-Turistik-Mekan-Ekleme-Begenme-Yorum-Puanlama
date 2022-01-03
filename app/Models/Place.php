@@ -24,4 +24,9 @@ class Place extends Model
     public function children(){
         return $this->hasMany(Place::class, 'category_id');
     }
+
+    #One to Many
+    public function comments(){
+        return $this->hasMany(Comment::class);
+    }
 }

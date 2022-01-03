@@ -15,7 +15,7 @@
 <div class="main-panel">
           <div class="content-wrapper">
 
-          <h3>CATEGORY EDIT</h3>
+          <h3>Message EDIT</h3>
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">

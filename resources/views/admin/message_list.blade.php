@@ -51,7 +51,7 @@
                           <td>{{ $rs->message }}</td>
                           <td>{{ $rs->created_at }}</td>
 
-                          <td><a href="{{route('admin_message_edit', ['id' => $rs->id])}}" onclick="return !window.open(this.href, '','top=50 left=100, width=900, height=700')"><i class="bi bi-images"></i></a></td>
+                          <td><a href="{{route('admin_message_edit', ['id' => $rs->id])}}" onclick="return !window.open(this.href, '','top=50 left=100, width=900, height=700')"><i class="bi bi-gear"></i></a></td>
 
                           
                           <td><a href="{{route('admin_message_delete', ['id' => $rs->id])}}" onclick="return confirm('Delete! Are you sure ?')"><i class="bi bi-trash-fill"></i></a></td>

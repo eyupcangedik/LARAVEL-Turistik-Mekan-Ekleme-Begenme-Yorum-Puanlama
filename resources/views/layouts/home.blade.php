@@ -44,6 +44,8 @@
 
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
     <script type="text/javascript">
+
+    
       var myLatlng;
       var map;
       var marker;
@@ -89,6 +91,8 @@
 @yield('slider')
 
 @yield('content')
+
+@yield('footerjs')
 
 @yield('footer')
 

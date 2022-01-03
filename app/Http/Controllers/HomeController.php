@@ -9,6 +9,7 @@ use App\Models\Message;
 use App\Models\Place;
 use App\Models\Image;
 use App\Models\Editor;
+use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -61,7 +62,8 @@ class HomeController extends Controller
         $data = Setting::first();
         $data2 = Place::find($id);
         $datalist = Image::where('place_id',$id)->get();
-        return view('home.place_detail',['id'=>$id, 'title'=>$title, 'data'=>$data, 'data2'=>$data2, 'datalist'=>$datalist]);
+        $comments = Comment::where('place_id',$id)->get();   
+        return view('home.place_detail',['id'=>$id, 'title'=>$title, 'data'=>$data, 'data2'=>$data2, 'datalist'=>$datalist, 'comments'=>$comments]);
     }
 
     public function categoryplaces($id,$keywords){
@@ -80,6 +82,19 @@ class HomeController extends Controller
         return redirect()->route('place',['id'=>$data2->id, 'title'=>$data2->title]); 
     }
 
+    public static function countcomment($id){
+
+        return Comment::where('place_id',$id)
+        ->where('status','=','True')
+        ->count();
+    }
+
+    public static function avrgcomment($id){
+        
+        return Comment::where('place_id',$id)
+        ->where('status','=','True')
+        ->average('rate');
+    }
 
     public function b_akdeniz(){
         return view('home.bolgeler.akdeniz.akdeniz');

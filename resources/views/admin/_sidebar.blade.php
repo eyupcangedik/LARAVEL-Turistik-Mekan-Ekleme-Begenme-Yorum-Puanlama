@@ -36,9 +36,9 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="pages/tables/basic-table.html">
+              <a class="nav-link" href="{{route('admin_comment')}}">
                 <span class="icon-bg"><i class="mdi mdi-table-large menu-icon"></i></span>
-                <span class="menu-title">Tables</span>
+                <span class="menu-title">Comments</span>
               </a>
             </li>
             <li class="nav-item">

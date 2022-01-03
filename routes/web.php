@@ -41,6 +41,8 @@ Route::post('/home/logincheck',[\App\Http\Controllers\UserController::class,'log
 
 Route::middleware('auth')->prefix('myaccount')->namespace('myaccount')->group(function(){
     Route::get('/',[\App\Http\Controllers\UserController::class,'index'])->name('myprofile');
+    Route::get('/mycomment',[\App\Http\Controllers\UserController::class,'mycomments'])->name('mycomments');
+    Route::get('/delete/{id}',[\App\Http\Controllers\UserController::class,'destroycomment'])->name('user_comment_delete');
 });
 
 Route::middleware('auth')->prefix('user')->namespace('myaccount')->group(function(){
@@ -112,6 +114,15 @@ Route::middleware('auth')->prefix('admin/editor')->group(function(){
     Route::get('/show/{id}',[\App\Http\Controllers\Admin\EditorController::class,'show'])->name('admin_editor_show');
 });
 
+#Comment
+Route::middleware('auth')->prefix('admin/comments')->group(function(){
+    Route::get('/',[\App\Http\Controllers\Admin\CommentController::class,'index'])->name('admin_comment');
+    Route::get('/edit/{id}',[\App\Http\Controllers\Admin\CommentController::class,'edit'])->name('admin_comment_edit');
+    Route::post('/update/{id}',[\App\Http\Controllers\Admin\CommentController::class,'update'])->name('admin_comment_update');
+    Route::get('/delete/{id}',[\App\Http\Controllers\Admin\CommentController::class,'destroy'])->name('admin_comment_delete');
+    Route::get('/show/{id}',[\App\Http\Controllers\Admin\CommentController::class,'show'])->name('admin_comment_show');
+});
+
 #Home
 Route::get('/home',[HomeController::class,'home'])->name('home');
 
@@ -127,6 +138,7 @@ Route::get('/place/{id}/{title}',[HomeController::class,'places'])->name('place'
 Route::get('/categoryplaces/{id}/{title}',[HomeController::class,'categoryplaces'])->name('categoryplaces');
 
 Route::post('getplace',[HomeController::class,'getplace'])->name('getplace');
+
 
 
 
