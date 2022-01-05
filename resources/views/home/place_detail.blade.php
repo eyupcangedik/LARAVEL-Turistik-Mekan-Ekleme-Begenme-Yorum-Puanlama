@@ -1,6 +1,6 @@
 @extends('layouts.home')
 
-@section('title','Yerler')
+@section('title',$title)
 @section('keywords',$data->keywords)
 @section('description',$data->description)
 
@@ -39,7 +39,7 @@
           
         </div>
 
-        <div class="col-md-8 col-sm-8">
+        <div class="col-md-12 col-sm-12">
 
           <div class="post">
             <h1 class="post-title" style="font-family:Arial">{{$data2->description}}</h1>
@@ -54,9 +54,7 @@
               
             </div>
           
-                
-                
-          
+  
           <div class="img-post">
             
             <div id="myCarousel" class="carousel slide" style="width:100%;">
@@ -108,88 +106,46 @@
           <hr>
 
           <h3>Yorumlar</h3>
-
+  
           @foreach($comments as $rs)
           <!-- the comments -->
           @if($rs->status == 'True')
-          <div class="comment-author-icon pull-left">
-            <i class="fa fa-user"></i>
-          </div>
-          <div class="comment-content pull-left">
-            <h4>{{$rs->user->name}} <small>{{$rs->created_at}}</small></h4>
-            <p>{{$rs->comment}}</p>
-          </div>
-          <div class="clearfix"></div>
+
+          <div class="row" style="border-bottom:1px solid black">
+            <div class="col-md-3">
+                <div class="comment-author-icon pull-left" >
+                  <img src="{{Storage::url($rs->user->profile_photo_path)}}" height="100" alt=""> 
+                </div>
+            </div>
+
+            <div class="col-md-9" >
+                <div class="comment-content pull-left ">
+                  <h4>{{$rs->user->name}} <small>{{$rs->created_at}}</small></h4>
+                  <p>
+                      @for ($i = $rs->rate; $i >= 1; $i--)
+                        <i class="fa fa-star" style="color:#D8D224"></i>
+                      @endfor
+
+                      @for ($i = 5-$rs->rate; $i >= 1; $i--)
+                        <i class="fa fa-star" style="color:black"></i>
+                      @endfor
+                  </p>
+
+                  <p>{{$rs->comment}}</p>
+                
+                </div>
+                
+                <div class="clearfix"></div>
+              </div>
+          
+            </div>
           @endif
+         
           @endforeach
         
         </div>
 
-        <div class="col-md-4 col-sm-4 sidebar">
-          <div class="well">
-            <h4>Search</h4>
-            <div class="input-group">
-              <input type="text" class="form-control">
-              <span class="input-group-btn">
-                <button class="btn btn-primary" type="button"><i class="fa fa-search"></i></button>
-              </span>
-            </div><!-- /input-group -->
-          </div><!-- /.well -->
 
-          <div class="well">
-            <h4>Categories</h4>
-            <ul class="nav nav-stacked nav-pills">
-              <li><a href="#">Lorem</a></li>
-              <li><a href="#">Ipsum</a></li>
-              <li><a href="#">Dolor</a></li>
-              <li><a href="#">Sit</a></li>
-              <li><a href="#">Amet</a></li>
-              <li><a href="#">Consectetur</a></li>
-            </ul>
-          </div><!-- /.well -->
-
-
-          <ul class="nav nav-tabs" id="widgetTab">
-            <li class="active"><a href="#latest-news" data-toggle="tab">Recent News</a></li>
-            <li><a href="#popular-news" data-toggle="tab">Popular News</a></li>
-          </ul>
-
-          <div class="tab-content">
-            <div class="tab-pane fade in active list-posts" id="latest-news">
-              <ul>
-                <li><a href="#"><i class="fa fa-caret-right"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pulvinar quam sed consequat adipiscing</a></li>
-                <li><a href="#"><i class="fa fa-caret-right"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pulvinar quam sed consequat adipiscing</a></li>
-                <li><a href="#"><i class="fa fa-caret-right"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pulvinar quam sed consequat adipiscing</a></li>
-              </ul>
-            </div>
-            <div class="tab-pane fade list-posts" id="popular-news">
-              <ul>
-                <li><a href="#"><i class="fa fa-caret-right"></i> Praesent convallis a risus eget cursus. Phasellus ultrices laoreet lacus semper cursus. Nam vitae luctus sapien, a hendrerit nunc</a></li>
-                <li><a href="#"><i class="fa fa-caret-right"></i> Praesent convallis a risus eget cursus. Phasellus ultrices laoreet lacus semper cursus. Nam vitae luctus sapien, a hendrerit nunc</a></li>
-                <li><a href="#"><i class="fa fa-caret-right"></i> Praesent convallis a risus eget cursus. Phasellus ultrices laoreet lacus semper cursus. Nam vitae luctus sapien, a hendrerit nunc</a></li>
-              </ul>
-            </div>
-          </div><!-- /.tab-content -->
-
-
-          <div class="well">
-            <h4>Tags</h4>
-            <div class="tags">
-              <a href="#">lorem</a>
-              <a href="#">ipsum</a>
-              <a href="#">dolor</a>
-              <a href="#">sit</a>
-              <a href="#">amet</a>
-              <a href="#">consectetur</a>
-              <a href="#">adipiscing</a>
-              <a href="#">elit</a>
-              <a href="#">donec</a>
-              <a href="#">pulvinar</a>
-            </div><!-- /tags -->
-          </div><!-- /.well -->
-
-          
-        </div><!-- /.sidebar -->
 
       </div><!-- /.row -->
 

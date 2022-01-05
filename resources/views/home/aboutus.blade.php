@@ -10,8 +10,14 @@
 @endsection
 
 @section('content')
-<div class="container" style="margin-top:5% ;margin-bottom:2%; font-family:arial">
-{!!$data->aboutus!!}
+<div class="container">
+    <div class="row">
+        <div class="container" style="margin-top:5% ;margin-bottom:2%; font-family:arial">
+            <h2>Hakkımızda</h2>
+            <hr>
+            {!!$data->aboutus!!}
+        </div>
+    </div>
 </div>
     
 @endsection

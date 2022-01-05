@@ -26,6 +26,8 @@
                     <table class="table table-hover">
                       <thead>
                         <tr>
+                          <th>Update</th>
+                          <th>Delete</th>
                           <th>Id</th>
                           <th>Category Id</th>
                           <th>Title</th>
@@ -38,14 +40,15 @@
                           <th>Status</th>
                           <th>Image</th>
                           <th>Image Galery</th>
-                          <th>Update</th>
-                          <th>Delete</th>
+                          
                         </tr>
                       </thead>
 
                       <tbody>
                         @foreach ( $datalist as $rs)
                         <tr>
+                        <td><a href="{{route('admin_place_edit', ['id' => $rs->id])}}"><i class="bi bi-gear"></i></a></td>
+                          <td><a href="{{route('admin_place_delete', ['id' => $rs->id])}}" onclick="return confirm('Delete! Are you sure ?')"><i class="bi bi-trash-fill"></i></a></td>
                           <td>{{ $rs->id }}</td>
                           <td>{{ \App\Http\Controllers\Admin\CategoryController::getParentsTree($rs->category, $rs->category->title) }}</td>
                           <td>{{ $rs->title }}</td>
@@ -66,8 +69,7 @@
 
                           <td><a href="{{route('admin_image_add', ['place_id' => $rs->id])}}" onclick="return !window.open(this.href, '','top=50 left=100, width=900, height=700')"><i class="bi bi-images"></i></a></td>
 
-                          <td><a href="{{route('admin_place_edit', ['id' => $rs->id])}}"><i class="bi bi-gear"></i></a></td>
-                          <td><a href="{{route('admin_place_delete', ['id' => $rs->id])}}" onclick="return confirm('Delete! Are you sure ?')"><i class="bi bi-trash-fill"></i></a></td>
+                          
                         </tr>
                         @endforeach
                         

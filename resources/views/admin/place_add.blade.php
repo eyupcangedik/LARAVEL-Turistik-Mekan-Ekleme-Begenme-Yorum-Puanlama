@@ -50,7 +50,7 @@
 
                       <div class="form-group">
                         <label for="exampleInputName1">Description</label>
-                        <input name="description" type="text" class="form-control" id="exampleInputName1" placeholder="Description">
+                        <input name="description" type="text" class="form-control" id="exampleInputName1" placeholder="Description" maxlength="310">
                       </div>
          
                       

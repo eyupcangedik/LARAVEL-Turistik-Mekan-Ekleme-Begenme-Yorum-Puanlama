@@ -37,7 +37,18 @@
 
               <li class="passive"><a href="/contact">İLETİŞİM</a></li>
 
-              <li class="passive"><a href="/aboutus">HAKKIMIZDA</a></li>
+              
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">HAKKIMIZDA <i class="fa fa-angle-down"></i></a>
+                  <ul class="dropdown-menu">
+                    <div class="acilirmenu">
+                      <ul>
+                      <li class="passive"><a href="{{route('aboutus')}}">HAKKIMIZDA</a></li>
+                      <li class="passive"><a href="{{route('faq')}}">SSS</a></li>
+                      </ul>
+                    </div>
+                </ul>
+              </li>
 
               <li class="passive"><a href="/references">REFERANSLARIMIZ</a></li>
 

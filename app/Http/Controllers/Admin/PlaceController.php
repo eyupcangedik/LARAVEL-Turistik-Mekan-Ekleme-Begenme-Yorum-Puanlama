@@ -29,7 +29,7 @@ class PlaceController extends Controller
     {
 
         //$datalist = Place::all();
-        $datalist = Place::with('children')->orderBy('title', 'ASC')->get();
+        $datalist = Place::with('children')->get();
         return view('admin.place_list', ['datalist'=>$datalist]);
         
     }

@@ -10,6 +10,7 @@ use App\Models\Place;
 use App\Models\Image;
 use App\Models\Editor;
 use App\Models\Comment;
+use App\Models\Faq;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -23,7 +24,7 @@ class HomeController extends Controller
     public function home(){
        
         $data = Setting::first();
-        $slider = Place::select('title','image')->limit(5)->get();
+        $slider = Place::select('title','image')->limit(2)->get();
         $data2 = DB::select('Select *from editors');
         return view('home.index', ['data'=>$data, 'data2'=>$data2,'slider'=>$slider]);
     }
@@ -87,6 +88,12 @@ class HomeController extends Controller
         return Comment::where('place_id',$id)
         ->where('status','=','True')
         ->count();
+    }
+
+    public function faq(){
+        $datalist = Faq::all();
+        $data = Setting::first();
+        return view('home.faq', ['data'=>$data, 'datalist'=>$datalist]);
     }
 
     public static function avrgcomment($id){

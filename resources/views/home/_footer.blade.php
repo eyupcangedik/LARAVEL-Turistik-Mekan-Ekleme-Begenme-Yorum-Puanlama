@@ -66,7 +66,8 @@
               <address>
                 <i class="fa fa-map-marker"></i> {{$data->address}}<br>
                 <i class="fa fa-phone"></i> {{$data->phone}}<br>
-                <i class="fa fa-envelope"></i> {{$data->email}}
+                <i class="fa fa-envelope"></i> {{$data->email}} <br>
+                
               </address>
             </div>
             

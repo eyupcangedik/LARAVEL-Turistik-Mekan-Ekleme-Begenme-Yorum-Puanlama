@@ -123,6 +123,19 @@ Route::middleware('auth')->prefix('admin/comments')->group(function(){
     Route::get('/show/{id}',[\App\Http\Controllers\Admin\CommentController::class,'show'])->name('admin_comment_show');
 });
 
+#Faq
+Route::middleware('auth')->prefix('admin')->group(function(){
+ 
+    Route::get('/faq',[\App\Http\Controllers\Admin\FaqController::class,'index'])->name('admin_faq');
+    Route::get('/faq/add',[\App\Http\Controllers\Admin\FaqController::class,'add'])->name('admin_faq_add');
+    Route::post('/faq/create',[\App\Http\Controllers\Admin\FaqController::class,'create'])->name('admin_faq_create');
+    Route::post('/faq/update/{id}',[\App\Http\Controllers\Admin\FaqController::class,'update'])->name('admin_faq_update');
+    Route::get('/faq/edit/{id}',[\App\Http\Controllers\Admin\FaqController::class,'edit'])->name('admin_faq_edit');
+    Route::get('/faq/delete/{id}',[\App\Http\Controllers\Admin\FaqController::class,'delete'])->name('admin_faq_delete');
+    Route::get('/faq/show',[\App\Http\Controllers\Admin\FaqController::class,'show'])->name('admin_faq_show');
+});
+
+
 #Home
 Route::get('/home',[HomeController::class,'home'])->name('home');
 
@@ -139,7 +152,7 @@ Route::get('/categoryplaces/{id}/{title}',[HomeController::class,'categoryplaces
 
 Route::post('getplace',[HomeController::class,'getplace'])->name('getplace');
 
-
+Route::get('faq',[HomeController::class,'faq'])->name('faq');
 
 
 Route::get('/akdeniz',[HomeController::class,'b_akdeniz'])->name('akdeniz');

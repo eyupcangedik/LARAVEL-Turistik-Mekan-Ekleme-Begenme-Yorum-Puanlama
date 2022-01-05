@@ -16,7 +16,7 @@
         <div class="container d-flex justify-content-center mt-5">
     
             <div class="rate bg-success py-3 text-white mt-3">
-                <div class="rating"> 
+                <div class="rating" style="float:left"> 
                     <input type="radio" wire:model="rate" value="5" id="5"><label for="5">☆</label> 
                     <input type="radio" wire:model="rate" value="4" id="4"><label for="4">☆</label> 
                     <input type="radio" wire:model="rate" value="3" id="3"><label for="3">☆</label> 

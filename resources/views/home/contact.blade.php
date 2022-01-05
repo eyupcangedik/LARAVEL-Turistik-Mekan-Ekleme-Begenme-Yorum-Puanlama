@@ -11,7 +11,10 @@
 <div class="container ">
     <div class="row">
         <div class="col-md-6">
+
                 <div class="container" style="margin-top:5% ;margin-bottom:2%; font-family:arial">
+                    <h2>İletişim</h2>
+                    <hr>
                     {!!$data->contact!!}
                 </div>
         </div>
