@@ -101,11 +101,11 @@ body{
 }
 
 a {
-  color: #16A085;
+  color: #34495E;
 }
 
 a:hover, a:focus {
-  color: #1ABC9C;
+  color: #34495E;
   text-decoration: none;
 }
 
@@ -156,7 +156,7 @@ p {
 
 blockquote {
   padding: 15px 20px;
-  border-left: 5px solid #16A085;
+  border-left: 5px solid #9A9A96;
   background: #FAFAFA;
 }
 
@@ -168,14 +168,13 @@ blockquote p {
 .navbar{
   margin: 0;
   border: none;
-  border-bottom: 2px solid #e68a00;
-  border-radius: 0;
+  border-bottom: 2px solid #34495E;
 }
 
 .navbar-inverse {
-    background-color: #e68a00;
+    background-color: #34495E;
    
-    border-color: #e68a00;
+    border-color: #34495E;
   
 }
 
@@ -201,31 +200,30 @@ blockquote p {
 
 .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
   color: #ffffff;
-  background-color: #cc7a00;
+  background-color: #5884AF;
 }
 
 .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
   color: #ffffff;
-  background-color:#cc7a00;
+  background-color:#5884AF;
 }
 
 .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
   color: #ffffff;
-  background-color: #cc7a00;
+  background-color: #5884AF;
 }
 
 .navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
-  background-color: #cc7a00;
+  background-color: #5884AF;
 }
 
 .navbar-inverse .navbar-toggle {
-  border-color: #cc7a00;
+  border-color: #5884AF;
   outline: none;
 }
 
 .dropdown-menu{
-  background-color: #cc7a00;
-  border: none;
+  background-color: #5884AF;
   border-radius: 2px;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
@@ -436,7 +434,7 @@ div.list-posts ul li a:hover{
 }
 
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
-  background-color: #169D83;
+  background-color: #34495E;
 }
 
 .post{
@@ -458,7 +456,7 @@ div.list-posts ul li a:hover{
 
 .post-meta .fa{
   margin: 0 5px 0 15px;
-  color: #16A085;
+  color: #34495E;
 }
 
 .post-meta .fa.first{
@@ -509,7 +507,7 @@ div.list-posts ul li a:hover{
 /* tags */
 
 .tags a{
-  background: #1ABC9C;
+  background: #34495E;
   padding: 6px 15px;
   margin: 0 0 10px 0;
   display: inline-block;
@@ -524,7 +522,7 @@ div.list-posts ul li a:hover{
 }
 
 .tags a:hover{
-  background: #16A085;
+  background: #34495E;
 }
 
 /* Tabs */
@@ -566,9 +564,8 @@ div.list-posts ul li a:hover{
 }
 
 .label-default {
-  background-color: #1ABC9C;
+  background-color: #34495E;
 }
-
 /* Buttons */
 .btn{
   border: none;
@@ -587,11 +584,11 @@ div.list-posts ul li a:hover{
 
 .btn-primary {
   color: #FFF;
-  background-color: #1ABC9C;
+  background-color: #34495E;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary{
-  background-color: #16A085;
+  background-color: #34495E;
 }
 
 .btn-info{
@@ -747,7 +744,7 @@ div.list-posts ul li a:hover{
   -moz-border-radius: 40px;
   text-align: center;
   font-size: 30px;
-  background: #1ABC9C;
+  background: #34495E;
   color: #fff;
   line-height: 70px;
   margin: 0 auto;
@@ -807,7 +804,7 @@ div.list-posts ul li a:hover{
 h3.error-404{
   font-size: 250px;
   font-family: 'open_sansbold';
-  color: #159C81;
+  color: #34495E;
 }
 
 img.monster{
@@ -830,7 +827,7 @@ img.monster{
 }
 
 .pricing-table .panel-default > .panel-heading{
-  background-color: #16A085;
+  background-color: #34495E;
   color: #FFF;
   border-radius: 0;
   -webkit-border-radius: 0;
@@ -966,7 +963,7 @@ footer .input-group-btn .btn{
   }
 
   .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:focus {
-    color: #149178;
+    color: #34495E;
   }
 
   h3.error-404{
@@ -1002,7 +999,7 @@ font-size: 24px;
 
 .jumbotron {
 background: #FFF;
-color: #e68a00;
+color: #5884AF;
 border-radius: 0px;
 }
 .jumbotron-sm { 
@@ -1076,7 +1073,7 @@ font-size: 24px;
   height:30px;
   display: block;
   text-decoration: none;
-  background-color: #e67300;
+  background-color: #5884AF;
   color:#FFF;
   font-family: Helvetica, sans-serif;
   font-size:15px;
@@ -1087,8 +1084,8 @@ font-size: 24px;
   line-height: 30px;
 }
 .acilirmenu li a:hover{
-  background-color: #ff8000;
-  color:#FF0;
+  background-color: #5884AF;
+  color:black;
 }
 .acilirmenu li:hover ul{
   display:block;
@@ -1194,8 +1191,8 @@ font-size: 24px;
   width: 1em;
   font-size: 30px;
   font-weight: 300;
-  color: #FFD600;
-  cursor: pointer
+  color: black;
+  cursor: pointer;
 }
 
 .rating>label::before {

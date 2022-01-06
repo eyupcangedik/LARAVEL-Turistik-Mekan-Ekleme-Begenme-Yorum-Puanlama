@@ -15,17 +15,26 @@
 <div class="row">
 
   <div class="col-lg-12">
-    <h2 class="section-title">User Panel</h2>
+    <h2 class="section-title">Kullanıcı Paneli</h2>
+    <hr>
   </div>
 
-  <div class="col-lg-4 col-md-4 col-sm-4">
-    @include('home.usermenu')
-  </div>
+</div>
 
-  <div class="col-lg-8 col-md-8 col-sm-8">
+<div class="row">
+  <div class="col-md-10">
     @include('profile.show')
   </div>
- 
+
+  <div class="col-md-2">
+    <div class="container">
+      <div class="row">
+      @include('home.usermenu')
+      </div>
+    </div>
+    
+  </div>
+</div>
 </div><!-- /.row -->
 
 </div><!-- /.container -->

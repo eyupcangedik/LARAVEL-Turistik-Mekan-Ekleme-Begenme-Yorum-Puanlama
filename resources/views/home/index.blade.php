@@ -40,11 +40,12 @@
   </div>
 
   @foreach($data2 as $rs)
-  <div class="col-lg-4 col-md-4 col-sm-6">
-    <div class="col-lg-16" style="text-align:center;">
+  
+  <div class="col-lg-4 col-md-4 col-sm-6" style="margin-bottom:20px;">
+    <div class="col-lg-16" style="text-align:center;height:70px; ">
       <h4>{{$rs->title}}</h4>
     </div>
-    <a href="portfolio-item.html" class="link-portfolio">
+    <a href="{{route('editor',['id'=>$rs->id])}}" class="link-portfolio">
       <div class="overlay-portfolio">
 
         <small class="text-muted" style="font-family: Arial, Helvetica, sans-serif;">

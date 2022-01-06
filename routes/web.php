@@ -50,7 +50,6 @@ Route::middleware('auth')->prefix('user')->namespace('myaccount')->group(functio
 });
 
 
-
 #Category
 Route::middleware('auth')->prefix('admin')->group(function(){
     Route::get('/',[\App\Http\Controllers\Admin\HomeController::class,'admin_index'])->name('admin_home');
@@ -152,23 +151,9 @@ Route::get('/categoryplaces/{id}/{title}',[HomeController::class,'categoryplaces
 
 Route::post('getplace',[HomeController::class,'getplace'])->name('getplace');
 
-Route::get('faq',[HomeController::class,'faq'])->name('faq');
+Route::get('/faq',[HomeController::class,'faq'])->name('faq');
 
-
-Route::get('/akdeniz',[HomeController::class,'b_akdeniz'])->name('akdeniz');
-
-Route::get('/dogu-anadolu',[HomeController::class,'b_dogu'])->name('dogu');
-
-Route::get('/ege',[HomeController::class,'b_ege'])->name('ege');
-
-Route::get('/guneydogu',[HomeController::class,'b_guneydogu'])->name('guneydogu');
-
-Route::get('/ic-anadolu',[HomeController::class,'b_icanadolu'])->name('icanadolu');
-
-Route::get('/karadeniz',[HomeController::class,'b_karadeniz'])->name('karadeniz');
-
-Route::get('/marmara',[HomeController::class,'b_marmara'])->name('marmara');
-Route::get('/marmara/dolmabahce',[HomeController::class,'b_marmara_dolmabahce'])->name('marmara_dolmabahce');
+Route::get('/editor/{id}',[HomeController::class,'editor'])->name('editor');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

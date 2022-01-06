@@ -91,7 +91,8 @@ class HomeController extends Controller
     }
 
     public function faq(){
-        $datalist = Faq::all();
+        $datalist = DB::table('faqs')->orderBy('position')->get();
+        //$datalist = Faq::all()->orderBy('position');
         $data = Setting::first();
         return view('home.faq', ['data'=>$data, 'datalist'=>$datalist]);
     }
@@ -103,34 +104,10 @@ class HomeController extends Controller
         ->average('rate');
     }
 
-    public function b_akdeniz(){
-        return view('home.bolgeler.akdeniz.akdeniz');
+    public function editor($id){
+        $data = Setting::first();
+        $data2 = Editor::find($id);
+        return view('home.editor_detail',['data'=>$data, 'data2'=>$data2]);
     }
-
-    public function b_dogu(){
-        return view('home.bolgeler.dogu-anadolu.dogu');
-    }
-
-    public function b_ege(){
-        return view('home.bolgeler.ege.ege');
-    }
-
-    public function b_guneydogu(){
-        return view('home.bolgeler.guneydogu.guneydogu');
-    }
-
-    public function b_icanadolu(){
-        return view('home.bolgeler.ic-anadolu.icanadolu');
-    }
-
-    public function b_karadeniz(){
-        return view('home.bolgeler.karadeniz.karadeniz');
-    }
-
-    public function b_marmara(){
-        return view('home.bolgeler.marmara.marmara');
-    }
-    public function b_marmara_dolmabahce(){
-        return view('home.bolgeler.marmara.dolmabahce');
-    }
+   
 }

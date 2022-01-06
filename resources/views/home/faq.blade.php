@@ -12,9 +12,9 @@
         <div class="container" style="margin-top:5% ;margin-bottom:2%; font-family:arial">
             <h2>Sıkça Sorulan Sorular</h2>
             <hr>
-
+            
             @foreach($datalist as $rs)
-                
+            @if($rs->status == 'True')
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{$rs->question}}
@@ -24,6 +24,7 @@
                 </div>
             </div>
             <hr>
+            @endif
             @endforeach
         </div>
     </div>
