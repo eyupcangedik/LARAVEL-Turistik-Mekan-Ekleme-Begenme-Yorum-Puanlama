@@ -1,27 +1,30 @@
-@extends('layouts.admin')
+@extends('layouts.home')
 
-@section('title','Place Edit')
-
-@section('navbar')
-    @include('admin._navbar')
-@endsection
+@section('title','Mekan Ekle')
+@section('keywords')
+@section('description')
 
 
-@section('sidebar')
-    @include('admin._sidebar')
+@section('header')
+    @include('home._header')
 @endsection
 
 @section('content')
-<div class="main-panel">
-          <div class="content-wrapper">
+<div class="container" style="margin-top:5%; margin-bottom:5%">
 
-          <h3>PLACE EDIT</h3>  
+    <div class="row">
+        <div class="col-lg-10">
+            <h2 class="section-title">Mekan Güncelle</h2>
+        </div>
+    </div>
 
+    <div class="row">
+        <div class="col-lg-10">
             <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
                     
-                    <form class="forms-sample" action="{{route('admin_place_update', ['id'=>$data->id])}}" method="post" enctype="multipart/form-data">
+                  <form class="forms-sample" action="{{route('user_place_update', ['id'=>$data->id])}}" method="post" enctype="multipart/form-data">
                       @csrf
 
                       <div class="form-group">
@@ -82,20 +85,6 @@
                       </div>
 
                       <div class="form-group">
-                        <label for="exampleInputName1">User Id</label>
-                        <input name="user_id" value="{{$data->user_id}}" type="number" class="form-control" id="exampleInputName1" placeholder="User Id">
-                      </div>
-
-                      <div class="form-group">
-                        <label for="exampleSelectGender">Status</label>
-                        <select name="status" value="{{$data->status}}" class="form-control" id="exampleSelectGender" required >
-                          <option>True</option>
-                          <option selected>False</option>
-                        </select>
-                      </div>
-                      
-
-                      <div class="form-group">
                         <label>File upload</label>
                         <div class="input-group col-xs-12">
                           <img src="{{Storage::url($data->image)}}" alt="" height="100px">
@@ -109,13 +98,17 @@
                     </form>
                   </div>
                 </div>
-              </div>
+            </div>
+        </div>
+    </div>
 
-
-          </div>
-          <!-- content-wrapper ends -->
+</div>
+           
 @endsection
 
 @section('footer')
-    @include('admin._footer')
+    @include('home._footer')
 @endsection
+
+
+

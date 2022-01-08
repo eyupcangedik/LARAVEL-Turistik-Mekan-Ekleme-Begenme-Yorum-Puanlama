@@ -31,12 +31,8 @@
                           <th>Id</th>
                           <th>Category Id</th>
                           <th>Title</th>
-                          <th>Keywords</th>
-                          <th>Description</th>
                           <th>City</th>
                           <th>Country</th>
-                          <th>Location</th>
-                          <th>User Id</th>
                           <th>Status</th>
                           <th>Image</th>
                           <th>Image Galery</th>
@@ -52,12 +48,8 @@
                           <td>{{ $rs->id }}</td>
                           <td>{{ \App\Http\Controllers\Admin\CategoryController::getParentsTree($rs->category, $rs->category->title) }}</td>
                           <td>{{ $rs->title }}</td>
-                          <td>{{ $rs->keywords }}</td>
-                          <td>{{ $rs->description }}</td>
                           <td>{{ $rs->city }}</td>
                           <td>{{ $rs->country }}</td>
-                          <td>{{ $rs->location }}</td>
-                          <td>{{ $rs->user_id }}</td>
                           <td>{{ $rs->status }}</td>
 
                           <td>

@@ -76,6 +76,9 @@
                           @auth
                             @if(Auth::user()->name != NULL)
                               <li><a href="/myaccount">{{Auth::user()->name}}</a></li>
+                              <li><a href="{{route('myprofile')}}">Profilim</a></li>  
+                              <li><a href="{{route('mycomments')}}">Yorumlarım</a></li>
+                              <li><a href="{{route('user_place')}}">Eklediğim Mekanlar</a></li>
                               <li><a href="{{route('home_logout')}}">Çıkış Yap</a></li>
                           @endauth
                           

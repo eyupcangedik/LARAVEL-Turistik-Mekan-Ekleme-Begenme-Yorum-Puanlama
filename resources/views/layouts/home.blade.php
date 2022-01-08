@@ -42,6 +42,8 @@
 
     <script type="text/javascript" src="js/banzhow.js"></script>
 
+    <script src="https://cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script>
+
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
     <script type="text/javascript">
 

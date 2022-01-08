@@ -45,8 +45,25 @@ Route::middleware('auth')->prefix('myaccount')->namespace('myaccount')->group(fu
     Route::get('/delete/{id}',[\App\Http\Controllers\UserController::class,'destroycomment'])->name('user_comment_delete');
 });
 
+#User
 Route::middleware('auth')->prefix('user')->namespace('myaccount')->group(function(){
     Route::get('/profile',[\App\Http\Controllers\UserController::class,'index'])->name('profile.show');
+
+    Route::get('/place',[\App\Http\Controllers\PlaceController::class,'index'])->name('user_place');
+    Route::get('/place/add',[\App\Http\Controllers\PlaceController::class,'add'])->name('user_place_add');
+    Route::post('/place/create',[\App\Http\Controllers\PlaceController::class,'create'])->name('user_place_create');
+    Route::post('/placeupdate/{id}',[\App\Http\Controllers\PlaceController::class,'update'])->name('user_place_update');
+    Route::get('/placeedit/{id}',[\App\Http\Controllers\PlaceController::class,'edit'])->name('user_place_edit');
+    Route::get('/placedelete/{id}',[\App\Http\Controllers\PlaceController::class,'delete'])->name('user_place_delete');
+    Route::get('/placeshow',[\App\Http\Controllers\PlaceController::class,'show'])->name('user_place_show');
+});
+
+#User Place Image
+Route::middleware('auth')->prefix('user/image')->group(function(){
+    Route::get('/create/{place_id}',[\App\Http\Controllers\ImageController::class,'create'])->name('user_image_add');
+    Route::post('/store/{place_id}',[\App\Http\Controllers\ImageController::class,'store'])->name('user_image_store');
+    Route::get('/delete/{id}/{place_id}',[\App\Http\ControllersImageController::class,'destroy'])->name('user_image_delete');
+    Route::get('/show',[\App\Http\Controllers\ImageController::class,'show'])->name('user_image_show');
 });
 
 

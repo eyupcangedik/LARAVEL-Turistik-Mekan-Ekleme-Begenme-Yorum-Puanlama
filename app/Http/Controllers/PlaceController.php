@@ -1,10 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\Place;
-use App\Models\Category;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
@@ -12,13 +10,15 @@ use Illuminate\Support\Facades\DB;
 
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
-use App\Models\Comment;
 
+use App\Models\Category;
+use App\Models\Setting;
 
-
+use App\Http\Controllers\Controller;
 
 
 class PlaceController extends Controller
+
 {
     /**
      * Display a listing of the resource.
@@ -27,25 +27,26 @@ class PlaceController extends Controller
      */
     public function index()
     {
-
-        //$datalist = Place::all();
-        $datalist = Place::with('children')->get();
-        return view('admin.place_list', ['datalist'=>$datalist]);
-        
+        $datalist = Place::with('children')
+            ->where('user_id',Auth::id())
+            //->where('status','True')
+            ->get();
+        $data = Setting::first();
+        return view('home.user_place_list', ['datalist'=>$datalist, 'data'=>$data]);
     }
 
-
-    /**
+     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function add()
     {
+        $data = Setting::first();
         $datalist = DB::table('categories')->get();
-        //$datalist = Place::with('children')->get();
-        return view('admin.place_add', ['datalist'=>$datalist]);
+        return view('home.user_place_add', ['datalist'=>$datalist, 'data'=>$data]);
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -60,7 +61,6 @@ class PlaceController extends Controller
             'title' => $request->input('title'),
             'keywords' => $request->input('keywords'),
             'description' => $request->input('description'),
-            
             'image' => Storage::putFile('images', $request->file('image')),
             'category_id' => $request->input('category_id'),
             
@@ -71,12 +71,11 @@ class PlaceController extends Controller
             
             'user_id' => Auth::id(),
             'detail' => $request->input('detail'),
-            'status' => $request->input('status'),
+            'status' => 'False',
 
         ]);
         
-        return redirect()->route('admin_place');
-       
+        return redirect()->route('user_place')->with('send','Yer Eklendi, Admin Onayı Bekliyor');
     }
 
     /**
@@ -87,7 +86,7 @@ class PlaceController extends Controller
      */
     public function store(Request $request)
     {
-       
+        //
     }
 
     /**
@@ -112,7 +111,7 @@ class PlaceController extends Controller
         $datalist2 = DB::table('categories')->get();
         $data = Place::find($id);
         $datalist = DB::table('places')->get()->where('id',$id);
-        return view('admin.place_edit', ['data'=>$data, 'datalist'=>$datalist, 'datalist2'=>$datalist2]);
+        return view('home.user_place_edit', ['data'=>$data, 'datalist'=>$datalist, 'datalist2'=>$datalist2]);
     }
 
     /**
@@ -142,10 +141,10 @@ class PlaceController extends Controller
 
         $data->save();
 
-        return redirect()->route('admin_place');
+        return redirect()->route('user_place');
     }
 
-  /**
+    /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Place  $place
@@ -155,6 +154,17 @@ class PlaceController extends Controller
     {
         DB::table('places')->where('id',$id)->delete();
 
-        return redirect()->route('admin_place');
+        return redirect()->route('user_place');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\Place  $place
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Place $place)
+    {
+        //
     }
 }
