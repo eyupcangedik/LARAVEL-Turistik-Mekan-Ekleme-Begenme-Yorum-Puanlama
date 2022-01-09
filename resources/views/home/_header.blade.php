@@ -68,6 +68,8 @@
                 </ul>
               </li>
 
+
+              
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">Giriş Yap/ Kayıt Ol <i class="fa fa-angle-down"></i></a>
                   <ul class="dropdown-menu">
@@ -75,17 +77,26 @@
                         <ul>
                           @auth
                             @if(Auth::user()->name != NULL)
-                              <li><a href="/myaccount">{{Auth::user()->name}}</a></li>
+                              <li><a>{{Auth::user()->name}}</a></li>
                               <li><a href="{{route('myprofile')}}">Profilim</a></li>  
                               <li><a href="{{route('mycomments')}}">Yorumlarım</a></li>
                               <li><a href="{{route('user_place')}}">Eklediğim Mekanlar</a></li>
                               <li><a href="{{route('home_logout')}}">Çıkış Yap</a></li>
+
+                            @php
+                              $userRoles = Auth::user()->roles->pluck('name');
+                            @endphp
+                            
+                            @if($userRoles->contains('admin'))
+                              <li><a href="{{route('admin_home')}}">Admin Panel</a></li>
+                            @endif
+
                           @endauth
                           
                             @else
                               <li><a href="{{route('home_login')}}">Giriş Yap</a></li>
-                              <li><a href="#">Kayıt Ol</a></li>
-                             @endif
+                              <li><a href="{{route('user_register')}}">Kayıt Ol</a></li>
+                            @endif
 
                         </ul>
                    </div>

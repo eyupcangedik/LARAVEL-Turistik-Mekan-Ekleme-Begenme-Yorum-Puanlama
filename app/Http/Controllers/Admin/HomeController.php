@@ -18,7 +18,7 @@ class HomeController extends Controller
     }
 
     public function login(){
-        return view('auth.login');
+        return view('admin.admin_login');
     }
 
     public function logincheck(Request $request){
@@ -34,7 +34,7 @@ class HomeController extends Controller
                 return redirect()->intended('admin');
             }
 
-            return back()->withErrors([
+            return view('admin.admin_login')->withErrors([
                 'email' => 'The provided credentials do not match our records.',
             ]);
         
@@ -54,7 +54,7 @@ class HomeController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/'); 
+        return redirect('admin/login'); 
     }
 
 

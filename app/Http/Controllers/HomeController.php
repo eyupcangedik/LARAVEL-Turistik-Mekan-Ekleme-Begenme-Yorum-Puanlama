@@ -109,5 +109,10 @@ class HomeController extends Controller
         $data2 = Editor::find($id);
         return view('home.editor_detail',['data'=>$data, 'data2'=>$data2]);
     }
+
+    public function register(){
+        $data = Setting::first();
+        return view('home.register',['data'=>$data]);
+    }
    
 }

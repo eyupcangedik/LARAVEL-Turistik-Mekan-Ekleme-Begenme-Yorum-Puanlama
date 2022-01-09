@@ -5,14 +5,14 @@
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
-
+        @include('home.message')
         @if (session('status'))
             <div class="mb-4 font-medium text-sm text-green-600">
                 {{ session('status') }}
             </div>
         @endif
 
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST" action="{{ route('admin_logincheck') }}">
             @csrf
 
             <div>

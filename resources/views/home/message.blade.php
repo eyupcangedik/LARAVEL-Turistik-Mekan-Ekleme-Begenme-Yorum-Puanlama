@@ -15,7 +15,7 @@
 @if ($message = Session::get('error'))
 <div class="alert alert-danger alert-block" style="font-family:Arial">
     <button type="button" class="close" data-dismiss="alert">×</button>
-    <strong>{{ $message }}</strong>
+    <p>{{ $message }}</p>
 </div>
 @endif
 
@@ -36,6 +36,6 @@
 @if ($errors->any())
 <div class="alert alert-danger" style="font-family:Arial">
     <button type="button" class="close" data-dismiss="alert">×</button>
-    Check the following errors :(
+    Kullanıcı Adı veya Şifre Hatalı :(
 </div>
 @endif
