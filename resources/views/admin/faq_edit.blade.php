@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title','Place Edit')
+@section('title','Faq Edit')
 
 @section('navbar')
     @include('admin._navbar')

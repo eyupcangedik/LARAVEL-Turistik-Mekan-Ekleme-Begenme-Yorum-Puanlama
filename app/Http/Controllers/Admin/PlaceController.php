@@ -136,10 +136,12 @@ class PlaceController extends Controller
         $data->location = $request->input('location');
 
         //$data->user_id = $request->input('user_id');
-        $data->user_id = Auth::id();
-        $data->status = $request->input('status');
-        $data->image = Storage::putFile('image', $request->file('image'));
 
+        $data->status = $request->input('status');
+        //$data->image = Storage::putFile('image', $request->file('image'));
+        if($request->file('image')!=NULL){
+            $data->image = Storage::putfile('images', $request->file('image'));
+        }
         $data->save();
 
         return redirect()->route('admin_place');

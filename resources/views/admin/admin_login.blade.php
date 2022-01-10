@@ -45,7 +45,7 @@
                 </div>
                 <div class="card-footer">
                     <div class="d-flex justify-content-center links">
-                        <span style="color:white">Hesabın yok mu? <a href="#" style="color:white">Kayıt Ol</a></span> 
+                        <span style="color:white">Hesabın yok mu? <a href="{{route('user_register')}}" style="color:white">Kayıt Ol</a></span> 
                         @include('home.message') 
                     </div>
                     

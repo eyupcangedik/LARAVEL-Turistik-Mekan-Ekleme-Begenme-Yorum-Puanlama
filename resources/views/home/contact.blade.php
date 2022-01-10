@@ -83,7 +83,7 @@
 
                                     <div class="col-md-12">
                                         <input type="submit" class="btn btn-primary pull-right" id="btnContactUs" style="background-color: #16A08">
-                                            Mesajı Gönder</button>
+                                    
                                     </div>
                                 </div>
                             </form>

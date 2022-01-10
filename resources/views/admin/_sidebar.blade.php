@@ -4,65 +4,52 @@
             <li class="nav-item nav-category">Main</li>
             
             <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                <span class="icon-bg"><i class="mdi mdi-crosshairs-gps menu-icon"></i></span>
-                <span class="menu-title">UI Elements</span>
-                <i class="menu-arrow"></i>
-              </a>
-              <div class="collapse" id="ui-basic">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
-                </ul>
-              </div>
-            </li>
-            <li class="nav-item">
               <a class="nav-link" href="{{route('admin_category')}}">
-                <span class="icon-bg"><i class="mdi mdi-contacts menu-icon"></i></span>
+                <span class="icon-bg"><i class="bi bi-list-stars"></i></span>
                 <span class="menu-title">Categories</span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{route('admin_place')}}">
-                <span class="icon-bg"><i class="mdi mdi-format-list-bulleted menu-icon"></i></span>
+                <span class="icon-bg"><i class="bi bi-cursor-fill"></i></span>
                 <span class="menu-title">Places</span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{route('admin_editor')}}">
-                <span class="icon-bg"><i class="mdi mdi-chart-bar menu-icon"></i></span>
+                <span class="icon-bg"><i class="bi bi-pencil"></i></span>
                 <span class="menu-title">Editor</span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{route('admin_comment')}}">
-                <span class="icon-bg"><i class="mdi mdi-table-large menu-icon"></i></span>
+                <span class="icon-bg"><i class="bi bi-chat-left-text-fill"></i></span>
                 <span class="menu-title">Comments</span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{route('admin_faq')}}">
-                <span class="icon-bg"><i class="mdi mdi-table-large menu-icon"></i></span>
+                <span class="icon-bg"><i class="bi bi-patch-question-fill"></i></span>
                 <span class="menu-title">FAQ</span>
               </a>
             </li>
-            
-            <li class="nav-item documentation-link">
-              <a class="nav-link" href="http://www.bootstrapdash.com/demo/connect-plus-free/jquery/documentation/documentation.html" target="_blank">
-                <span class="icon-bg">
-                  <i class="mdi mdi-file-document-box menu-icon"></i>
-                </span>
-                <span class="menu-title">Documentation</span>
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('admin_users')}}">
+                <span class="icon-bg"><i class="bi bi-people-fill"></i></span>
+                <span class="menu-title">Users</span>
               </a>
             </li>
+            
+        
             <li class="nav-item sidebar-user-actions">
               <div class="user-details">
                 <div class="d-flex justify-content-between align-items-center">
                   <div>
                     <div class="d-flex align-items-center">
                       <div class="sidebar-profile-img">
-                        <img src="{{asset('assets')}}/admin/images/faces/face28.png" alt="image">
+                        @if(Auth::user()->profile_photo_path)
+                          <img src="{{Storage::url(Auth::user()->profile_photo_path)}}" height="40" alt="image" style="border-radius:5px">
+                        @endif
                       </div>
                       <div class="sidebar-profile-text">
                         <p class="mb-1">{{Auth::user()->name}}</p>

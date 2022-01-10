@@ -23,27 +23,34 @@
                     <form class="forms-sample" action="{{route('admin_message_update', ['id'=>$data->id])}}" method="post">
                       @csrf           
 
+                      <div class="card-body"> 
+                        <table class="table table-hover">
+                          <tr>
+                              <th>ID <td>{{$data->id}} </td></th>     
+                          </tr>
 
-                      <div class="form-group">
-                        <label for="exampleInputName1">Name</label>
-                        <input name="namesurname" value="{{$data->name}}" type="text" class="form-control" id="exampleInputName1" placeholder="Title">
+                          <tr>
+                              <th>Name <td>{{$data->name}}</td></th>
+                          </tr>
+
+                          <tr>
+                              <th>Email <td>{{$data->email}}</td></th>
+                          </tr>
+
+                          <tr>
+                              <th>Phone <td>
+                               <textarea name="" id="" cols="80" rows="10" disabled>{{$data->phone}}</textarea> </td></th>
+                          </tr>
+   
+                          <tr>
+                              <th>Message <td>
+                               <textarea name="" id="" cols="80" rows="10" disabled>{{$data->message}}</textarea> </td></th>
+                          </tr>
+            
+                          </table>
                       </div>
 
-                      <div class="form-group">
-                        <label for="exampleInputName1">Email</label>
-                        <input name="email" value="{{$data->email}}" type="text" class="form-control" id="exampleInputName1" placeholder="Keywords">
-                      </div>
-
-                      <div class="form-group">
-                        <label for="exampleInputName1">Phone</label>
-                        <input name="phone" value="{{$data->phone}}" type="text" class="form-control" id="exampleInputName1" placeholder="Description">
-                      </div>
-
-                      <div class="form-group">
-                        <label for="message">Message</label>
-                            <textarea name="message" id="message" class="form-control" rows="9" cols="25" required="required"
-                            placeholder="Message">{{$data->message}}</textarea>
-                      </div>
+                      
                       
                       <div class="form-group">
                         <label for="message">Admin Note</label>

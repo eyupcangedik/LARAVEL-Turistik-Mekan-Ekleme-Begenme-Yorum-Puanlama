@@ -103,7 +103,10 @@ class EditorController extends Controller
         $data->title = $request->input('title');
         $data->description = $request->input('description');
         $data->detail = $request->input('detail');
-        $data->image = Storage::putFile('image', $request->file('image'));
+        //$data->image = Storage::putFile('image', $request->file('image'));
+        if($request->file('image')!=NULL){
+            $data->image = Storage::putfile('images', $request->file('image'));
+        }
 
         $data->save();
         return redirect()->route('admin_editor');

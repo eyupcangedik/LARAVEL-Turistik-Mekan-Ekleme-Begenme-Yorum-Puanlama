@@ -9,6 +9,7 @@ use App\Models\Message;
 use App\Models\Place;
 use App\Models\Image;
 use App\Models\Editor;
+use App\Models\User;
 use App\Models\Comment;
 use App\Models\Faq;
 use Illuminate\Support\Facades\Auth;
@@ -62,14 +63,17 @@ class HomeController extends Controller
         
         $data = Setting::first();
         $data2 = Place::find($id);
+        $data3 = DB::table('users')->where('id',$data2->user_id)->get('name');     
         $datalist = Image::where('place_id',$id)->get();
         $comments = Comment::where('place_id',$id)->get();   
-        return view('home.place_detail',['id'=>$id, 'title'=>$title, 'data'=>$data, 'data2'=>$data2, 'datalist'=>$datalist, 'comments'=>$comments]);
+        return view('home.place_detail',['id'=>$id, 'title'=>$title, 'data'=>$data, 'data2'=>$data2, 'data3'=>$data3, 'datalist'=>$datalist, 'comments'=>$comments]);
     }
 
     public function categoryplaces($id,$keywords){
         $data = Setting::first();
-        $data2 = Place::where('category_id',$id)->get();
+        $data2 = Place::where('category_id',$id)
+        ->where('status','True')
+        ->get();
         return view('home.category_places',['data'=>$data, 'data2'=>$data2,'title'=>$keywords]);
     }
 

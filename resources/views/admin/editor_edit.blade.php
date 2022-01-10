@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title','Place Edit')
+@section('title','Editor Edit')
 
 @section('navbar')
     @include('admin._navbar')
@@ -47,12 +47,14 @@
                       </div>
 
                       <div class="form-group">
-                        <label>File upload</label>
-                        <div class="input-group col-xs-12">
-                          <input type="file" value="{{$data->image}}" name="image" class="form-control file-upload-info" required>
-                        </div>
+                        <label for="exampleInputName1">Image</label>
+                        <input name="image" type="file" class="form-control" id="exampleInputName1" placeholder="Image">
+
+                        @if($data->image)
+                            <img src="{{Storage::url($data->image)}}" height="200" alt="">
+                        @endif
                       </div>
-                      
+
                       
                       <button type="submit" class="btn btn-primary me-2">Save</button>
                       

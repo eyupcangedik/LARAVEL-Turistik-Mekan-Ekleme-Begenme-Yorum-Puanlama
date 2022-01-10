@@ -1,6 +1,6 @@
 @extends('layouts.home')
 
-@section('title','Giriş Yap')
+@section('title','Kayıt Ol')
 @section('keywords',$data->keywords)
 @section('description',$data->description)
 

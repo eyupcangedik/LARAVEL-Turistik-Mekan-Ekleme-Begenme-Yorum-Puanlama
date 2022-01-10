@@ -45,8 +45,17 @@
             <h1 class="post-title" style="font-family:Arial">{{$data2->description}}</h1>
             <div style="display:flex; justify-content:space-between">
             <p class="post-meta">
-              <i class="fa fa-calendar-o first"></i> {{$data2->created_at}}
-              <i class="fa fa-user"></i> Admin
+              <i class="fa fa-calendar-o first"></i> {{$data2->updated_at}}
+              <i class="fa fa-user"></i>
+                <?php 
+                  $json = $data3;
+                  $dec = json_decode($json);
+                  for($idx = 0; $idx < count($dec); $idx++){
+                    $obj = (Array)$dec[$idx];
+                    print_r($obj["name"]);
+                  }
+                ?>
+
               <i class="fa fa-comment"></i> <a href="#">{{$countcomment}} Yorum</a>
               <i class="fa fa-star"></i> <a href="#">{{$avrcom}}</a>
               
@@ -74,7 +83,7 @@
                   <div class="item">
                     <div class="fill" style="background-image:url('{{Storage::url($rs->image)}}');"></div>
                       <div class="carousel-caption">
-                        <h1>Test</h1>
+                        
                       </div>
                   </div>
                   @endforeach

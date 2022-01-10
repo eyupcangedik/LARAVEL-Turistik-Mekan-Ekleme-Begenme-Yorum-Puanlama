@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title','Place List')
+@section('title','Editor List')
 @section('navbar')
     @include('admin._navbar')
 @endsection
@@ -26,8 +26,8 @@
                     <table class="table table-hover">
                       <thead>
                         <tr>
+                          <th>Id</th>
                           <th>Title</th>
-                          <th>Description</th>
                           <th>Image</th>
                           <th>Update</th>
                           <th>Delete</th>
@@ -37,12 +37,9 @@
                       <tbody>
                         @foreach ( $datalist as $rs)
                         <tr>
-                          
+                          <td>{{ $rs->id }}</td>
                           <td>{{ $rs->title }}</td>
-                         
-                          <td>{{ $rs->description }}</td>
-                          
-
+                                         
                           <td>
                             @if ( $rs->image )
                                 <img src="{{Storage::url($rs->image)}}" height="30" alt=""> 

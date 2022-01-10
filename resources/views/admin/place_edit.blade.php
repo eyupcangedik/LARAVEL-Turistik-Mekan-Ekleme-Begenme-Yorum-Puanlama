@@ -82,11 +82,6 @@
                       </div>
 
                       <div class="form-group">
-                        <label for="exampleInputName1">User Id</label>
-                        <input name="user_id" value="{{$data->user_id}}" type="number" class="form-control" id="exampleInputName1" placeholder="User Id">
-                      </div>
-
-                      <div class="form-group">
                         <label for="exampleSelectGender">Status</label>
                         <select name="status" value="{{$data->status}}" class="form-control" id="exampleSelectGender" required >
                           <option>True</option>
@@ -94,15 +89,15 @@
                         </select>
                       </div>
                       
-
-                      <div class="form-group">
-                        <label>File upload</label>
-                        <div class="input-group col-xs-12">
-                          <img src="{{Storage::url($data->image)}}" alt="" height="100px">
-                          <input type="file" name="image" class="form-control file-upload-info" required>
-                        </div>
-                      </div>
                       
+                      <div class="form-group">
+                        <label for="exampleInputName1">Image</label>
+                        <input name="image" type="file" class="form-control" id="exampleInputName1" placeholder="Image">
+
+                        @if($data->image)
+                            <img src="{{Storage::url($data->image)}}" height="200" alt="">
+                        @endif
+                      </div>
                       
                       <button type="submit" class="btn btn-primary me-2">Save</button>
                       

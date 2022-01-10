@@ -30,13 +30,13 @@
               <li class="passive"><a href="/home">ANASAYFA</a></li>
               
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">GEZİ REHBERİ <i class="fa fa-angle-down"></i></a>
+                <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">GEZİ REHBERİ <i class="fa fa-angle-down"></i></a>
                   <ul class="dropdown-menu">
                     <div class="acilirmenu">
                       <ul>
                         @foreach($parentCategories as $rs)
 
-                          <li><a href="#">{{$rs->title}}</a>
+                          <li><a style="cursor:pointer">{{$rs->title}}</a>
 
                           @if(count($rs->children))
                             @include('home.categorytree',['children' => $rs->children])
@@ -56,7 +56,7 @@
 
               
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">HAKKIMIZDA <i class="fa fa-angle-down"></i></a>
+                <a class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">HAKKIMIZDA <i class="fa fa-angle-down"></i></a>
                   <ul class="dropdown-menu">
                     <div class="acilirmenu">
                       <ul>
@@ -71,13 +71,13 @@
 
               
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">Giriş Yap/ Kayıt Ol <i class="fa fa-angle-down"></i></a>
+                <a style="cursor:pointer" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">Giriş Yap/ Kayıt Ol <i class="fa fa-angle-down"></i></a>
                   <ul class="dropdown-menu">
                     <div class="acilirmenu">
                         <ul>
                           @auth
                             @if(Auth::user()->name != NULL)
-                              <li><a>{{Auth::user()->name}}</a></li>
+                              <li><a style="cursor:pointer">{{Auth::user()->name}}</a></li>
                               <li><a href="{{route('myprofile')}}">Profilim</a></li>  
                               <li><a href="{{route('mycomments')}}">Yorumlarım</a></li>
                               <li><a href="{{route('user_place')}}">Eklediğim Mekanlar</a></li>

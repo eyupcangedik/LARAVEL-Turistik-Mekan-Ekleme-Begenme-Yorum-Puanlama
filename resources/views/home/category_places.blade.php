@@ -1,6 +1,6 @@
 @extends('layouts.home')
 
-@section('title','Place')
+@section('title',$title)
 @section('keywords',$data->keywords)
 @section('description',$data->description)
 
